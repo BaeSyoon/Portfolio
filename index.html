@@ -441,8 +441,8 @@
                 <li><a href="#about" class="nav-link">소개</a></li>
                 <li><a href="#timeline" class="nav-link">이력</a></li>
                 <li><a href="#skills" class="nav-link">스킬</a></li>
-                <li><a href="#projects" class="nav-link">프로젝트</a></li>
-                <li><a href="#troubleshooting" class="nav-link">트러블슈팅</a></li>
+                <li><a href="#project01" class="nav-link">프로젝트1</a></li>
+                <li><a href="#project02" class="nav-link">프로젝트2</a></li>
                 <li><a href="#activities" class="nav-link">기타 활동</a></li>
             </ul>
             <div class="hamburger">
@@ -579,8 +579,8 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
+    <!-- Project01 Section -->
+    <section id="project01">
         <div class="container">
             <h2 class="section-title">프로젝트</h2>
             <div class="projects-grid">
@@ -635,6 +635,169 @@
             </div>
         </div>
     </section>
+
+    <!-- Troubleshooting Section -->
+    <section id="troubleshooting">
+        <div class="container">
+            <h2 class="section-title">트러블슈팅</h2>
+            <div class="troubleshooting-list">
+                <div class="trouble-item">
+                    <div class="trouble-header" onclick="toggleTrouble(this)">
+                        <span>Oculus Link 연결 문제</span>
+                        <span>+</span>
+                    </div>
+                    <div class="trouble-content">
+                        <div class="trouble-section">
+                            <h4>문제:</h4>
+                            <p>Oculus Quest 2와 PC 간 연결이 불안정하여 VR 개발 테스트가 어려웠음</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>원인:</h4>
+                            <p>Oculus 설정 디렉토리의 캐시 파일 충돌</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>해결:</h4>
+                            <p>설정 디렉토리 삭제 후 재설정으로 연결 안정화</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>교훈:</h4>
+                            <p>하드웨어 연결 문제는 소프트웨어 캐시 초기화로 해결될 수 있음</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trouble-item">
+                    <div class="trouble-header" onclick="toggleTrouble(this)">
+                        <span>Unity 충돌 감지 오류</span>
+                        <span>+</span>
+                    </div>
+                    <div class="trouble-content">
+                        <div class="trouble-section">
+                            <h4>문제:</h4>
+                            <p>게임 오브젝트 간 충돌 감지가 정상적으로 작동하지 않음</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>원인:</h4>
+                            <p>Rigidbody 컴포넌트의 잘못된 설정</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>해결:</h4>
+                            <p>Rigidbody의 Is Kinematic 설정 조정 및 Collider 설정 재검토</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>교훈:</h4>
+                            <p>Unity 물리 시스템의 기본 설정을 정확히 이해하는 것이 중요</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trouble-item">
+                    <div class="trouble-header" onclick="toggleTrouble(this)">
+                        <span>입력 UI 오류</span>
+                        <span>+</span>
+                    </div>
+                    <div class="trouble-content">
+                        <div class="trouble-section">
+                            <h4>문제:</h4>
+                            <p>사용자 입력 UI에서 텍스트 처리 오류 발생</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>원인:</h4>
+                            <p>TextMeshPro 컴포넌트의 비동기 처리 문제</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>해결:</h4>
+                            <p>TextMeshPro 처리 로직 변경 및 코루틴을 활용한 비동기 처리 개선</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>교훈:</h4>
+                            <p>UI 컴포넌트의 생명주기를 고려한 프로그래밍 필요</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trouble-item">
+                    <div class="trouble-header" onclick="toggleTrouble(this)">
+                        <span>Unity 버전 문제</span>
+                        <span>+</span>
+                    </div>
+                    <div class="trouble-content">
+                        <div class="trouble-section">
+                            <h4>문제:</h4>
+                            <p>프로젝트 호환성 문제로 인한 빌드 오류</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>원인:</h4>
+                            <p>Unity 버전 간 API 변경사항</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>해결:</h4>
+                            <p>Unity 2022 LTS로 업그레이드하여 안정성 확보</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>교훈:</h4>
+                            <p>LTS 버전 사용의 중요성과 버전 관리의 필요성</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project02 Section -->
+    <section id="project02">
+        <div class="container">
+            <h2 class="section-title">프로젝트</h2>
+            <div class="projects-grid">
+                <div class="project-card" onclick="openModal('spaceVR')">
+                    <div class="project-image">VR Game</div>
+                    <div class="project-content">
+                        <h3 class="project-title">SPACE VR GAME</h3>
+                        <p class="project-description">외계인과 함께 Python 코딩으로 우주선을 운행해 탈출하는 학습형 VR 게임</p>
+                        <div class="project-keywords">
+                            <span class="keyword">Unity</span>
+                            <span class="keyword">C#</span>
+                            <span class="keyword">VR</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" onclick="openModal('heartRate')">
+                    <div class="project-image">Mobile App</div>
+                    <div class="project-content">
+                        <h3 class="project-title">심박수 어플리케이션</h3>
+                        <p class="project-description">물류 현장 근로자 건강 관리를 위한 심박수 모니터링 앱</p>
+                        <div class="project-keywords">
+                            <span class="keyword">Android</span>
+                            <span class="keyword">Kotlin</span>
+                            <span class="keyword">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" onclick="openModal('ideaRoom')">
+                    <div class="project-image">Web Project</div>
+                    <div class="project-content">
+                        <h3 class="project-title">아이더룸</h3>
+                        <p class="project-description">웹 기반 프론트엔드 팀 프로젝트</p>
+                        <div class="project-keywords">
+                            <span class="keyword">HTML</span>
+                            <span class="keyword">CSS</span>
+                            <span class="keyword">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" onclick="openModal('fpsGame')">
+                    <div class="project-image">FPS Game</div>
+                    <div class="project-content">
+                        <h3 class="project-title">FPS GAME</h3>
+                        <p class="project-description">OpenGL과 GLSL을 활용한 개인 FPS 게임 프로젝트</p>
+                        <div class="project-keywords">
+                            <span class="keyword">OpenGL</span>
+                            <span class="keyword">GLSL</span>
+                            <span class="keyword">C++</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- Troubleshooting Section -->
     <section id="troubleshooting">
