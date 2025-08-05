@@ -129,9 +129,10 @@
         }
 
         .profile-image {
-            width: 250px;
+            width: 210px;
             height: 250px;
-            border-radius: 50%;
+            border-radius: 10%;
+            overflow: hidden;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
@@ -139,6 +140,12 @@
             color: white;
             font-size: 3rem;
             margin: 0 auto;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .contact-info {
@@ -509,7 +516,7 @@
         <div class="container">
             <div class="section-header">
                 <h1 class="section-title">프로필</h1>
-                <p class="section-subtitle">개인 정보, 학력 및 경력, 보유 기술</p>
+                <p class="section-subtitle">개인 정보, 학력 및 이력, 보유 기술</p>
             </div>
 
             <!-- 소개 Subsection -->
@@ -517,7 +524,9 @@
                 <h2 class="subsection-title">소개</h2>
                 <div class="profile-grid">
                     <div>
-                        <div class="profile-image">배</div>
+                        <div class="profile-image">
+                            <img src="images/profile.png" alt="프로필 사진">
+                        </div>
                     </div>
                     <div class="contact-info">
                         <h3 style="margin-bottom: 1.5rem; color: #2c3e50;">배소윤</h3>
@@ -639,9 +648,9 @@
                         <div class="skill-tags">
                             <span class="skill-tag">Git</span>
                             <span class="skill-tag">Notion</span>
-                            <span class="skill-tag">Gradle</span>
                             <span class="skill-tag">Discord</span>
                             <span class="skill-tag">Slack</span>
+                            <span class="skill-tag">Gradle</span>
                         </div>
                     </div>
                 </div>
