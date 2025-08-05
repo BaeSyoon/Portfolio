@@ -24,106 +24,132 @@
             padding: 0 20px;
         }
 
-        /* Navigation */
-        nav {
-            background: #fff;
+        /* Header Navigation */
+        .header-nav {
+            background: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
+            position: sticky;
             top: 0;
-            width: 100%;
             z-index: 1000;
+            padding: 1rem 0;
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
             color: #2c3e50;
         }
 
-        .nav-menu {
+        .nav-links {
             display: flex;
-            list-style: none;
             gap: 2rem;
+            list-style: none;
         }
 
-        .nav-link {
+        .nav-links a {
             text-decoration: none;
             color: #333;
             font-weight: 500;
-            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s;
         }
 
-        .nav-link:hover {
-            color: #3498db;
+        .nav-links a:hover {
+            background: #3498db;
+            color: white;
         }
 
-        .hamburger {
+        /* Mobile menu */
+        .mobile-menu-btn {
             display: none;
-            flex-direction: column;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
             cursor: pointer;
         }
 
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: #333;
-            margin: 3px 0;
-            transition: 0.3s;
+        /* Main Sections */
+        .main-section {
+            padding: 4rem 0;
+            border-bottom: 2px solid #ecf0f1;
         }
 
-        /* Sections */
-        section {
-            padding: 100px 0 80px;
-            min-height: 100vh;
+        .main-section:last-child {
+            border-bottom: none;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
         }
 
         .section-title {
-            text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 3rem;
             color: #2c3e50;
+            margin-bottom: 1rem;
+            text-align: left;
         }
 
-        /* About Section */
-        .about-content {
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            text-align: left;
+        }
+
+        /* Subsections */
+        .subsection {
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .subsection-title {
+            font-size: 1.8rem;
+            color: #34495e;
+            margin-bottom: 1.5rem;
+            text-align: left;
+            border-left: 4px solid #3498db;
+            padding-left: 1rem;
+        }
+
+        /* Profile Section Styles */
+        .profile-grid {
             display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            align-items: start;
         }
 
         .profile-image {
-            width: 300px;
-            height: 300px;
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 4rem;
+            font-size: 3rem;
             margin: 0 auto;
         }
 
         .contact-info {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
         }
 
         .contact-item {
             display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            padding: 0.5rem 0;
+            margin-bottom: 0.8rem;
         }
 
         .contact-item strong {
@@ -132,77 +158,42 @@
         }
 
         /* Timeline */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background: #3498db;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-        }
-
         .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            background: inherit;
-            width: 50%;
+            display: flex;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #ecf0f1;
         }
 
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
-            background: #3498db;
-            border: 4px solid #fff;
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
+        .timeline-date {
+            width: 200px;
+            font-weight: bold;
+            color: #3498db;
+            flex-shrink: 0;
         }
 
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-
-        .timeline-item:nth-child(even)::after {
-            left: -10px;
-        }
-
-        .timeline-content {
-            padding: 20px 30px;
-            background: white;
-            position: relative;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        .timeline-content h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
         }
 
         /* Skills */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .skill-category {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
         }
 
-        .skill-category h3 {
+        .skill-category h4 {
             color: #2c3e50;
             margin-bottom: 1rem;
-            font-size: 1.3rem;
         }
 
         .skill-tags {
@@ -212,37 +203,27 @@
         }
 
         .skill-tag {
-            background: #ecf0f1;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
+            background: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
             font-size: 0.9rem;
             color: #2c3e50;
+            border: 1px solid #ddd;
         }
 
-        /* Projects */
-        .projects-grid {
+        /* Project Styles */
+        .project-overview {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr 300px;
             gap: 2rem;
+            margin-bottom: 2rem;
         }
 
-        .project-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            cursor: pointer;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-image {
+        .project-screenshot {
             width: 100%;
             height: 200px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -250,86 +231,47 @@
             font-size: 1.2rem;
         }
 
-        .project-content {
+        .project-info {
+            background: #f8f9fa;
             padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
         }
 
-        .project-title {
-            font-size: 1.3rem;
+        .project-info p {
             margin-bottom: 0.5rem;
-            color: #2c3e50;
         }
 
-        .project-description {
-            color: #666;
-            margin-bottom: 1rem;
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
         }
 
-        .project-keywords {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+        .feature-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ecf0f1;
+            position: relative;
+            padding-left: 1.5rem;
         }
 
-        .keyword {
-            background: #3498db;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
+        .feature-list li:before {
+            content: "▶";
+            color: #3498db;
+            position: absolute;
             left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: 5% auto;
-            padding: 2rem;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 800px;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close:hover {
-            color: #000;
         }
 
         /* Troubleshooting */
-        .troubleshooting-list {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
         .trouble-item {
-            background: white;
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-radius: 8px;
             margin-bottom: 1rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             overflow: hidden;
         }
 
         .trouble-header {
-            background: #2c3e50;
+            background: #e53e3e;
             color: white;
             padding: 1rem;
             cursor: pointer;
@@ -347,19 +289,19 @@
             display: block;
         }
 
-        .trouble-section {
+        .trouble-detail {
             margin-bottom: 1rem;
         }
 
-        .trouble-section h4 {
-            color: #e74c3c;
+        .trouble-detail h5 {
+            color: #c53030;
             margin-bottom: 0.5rem;
         }
 
-        /* Other Activities */
+        /* Activities */
         .activities-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
@@ -367,268 +309,223 @@
             background: white;
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #3498db;
         }
 
         .activity-icon {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1rem;
+            margin-bottom: 1rem;
             color: white;
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
 
-        /* Responsive */
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .hamburger {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
                 display: flex;
             }
 
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 70px;
-                flex-direction: column;
-                background-color: white;
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
-                padding: 2rem 0;
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .about-content {
+            .profile-grid {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
 
-            .timeline::after {
-                left: 31px;
+            .project-overview {
+                grid-template-columns: 1fr;
             }
 
             .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
+                flex-direction: column;
             }
 
-            .timeline-item::after {
-                left: 21px;
+            .timeline-date {
+                width: auto;
+                margin-bottom: 0.5rem;
             }
 
             .section-title {
                 font-size: 2rem;
             }
+
+            .subsection-title {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">배소윤</div>
-            <ul class="nav-menu">
-                <li><a href="#about" class="nav-link">소개</a></li>
-                <li><a href="#timeline" class="nav-link">이력</a></li>
-                <li><a href="#skills" class="nav-link">스킬</a></li>
-                <li><a href="#project01" class="nav-link">프로젝트1</a></li>
-                <li><a href="#project02" class="nav-link">프로젝트2</a></li>
-                <li><a href="#activities" class="nav-link">기타 활동</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+    <!-- Header Navigation -->
+    <header class="header-nav">
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">배소윤 포트폴리오</div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#profile">프로필</a></li>
+                        <li><a href="#vr-game">VR 게임</a></li>
+                        <li><a href="#heart-app">심박수 앱</a></li>
+                        <li><a href="#activities">활동</a></li>
+                    </ul>
+                    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+                </nav>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- About Section -->
-    <section id="about">
+    <!-- 1. 프로필 Section -->
+    <section id="profile" class="main-section">
         <div class="container">
-            <h2 class="section-title">소개</h2>
-            <div class="about-content">
-                <div class="profile-image">배</div>
-                <div class="contact-info">
-                    <h3 style="margin-bottom: 1.5rem; color: #2c3e50;">배소윤</h3>
-                    <div class="contact-item">
-                        <strong>이메일:</strong>
-                        <span>bsy00n@inavi.kr</span>
-                    </div>
-                    <div class="contact-item">
-                        <strong>휴대폰:</strong>
-                        <span>010-4233-6521</span>
-                    </div>
-                    <div class="contact-item">
-                        <strong>주소:</strong>
-                        <span>경기도 용인시 수지구 상현로 27</span>
-                    </div>
-                    <div class="contact-item">
-                        <strong>GitHub:</strong>
-                        <a href="https://github.com/BaeSyoon" target="_blank" style="color: #3498db;">https://github.com/BaeSyoon</a>
-                    </div>
-                </div>
+            <div class="section-header">
+                <h1 class="section-title">프로필</h1>
+                <p class="section-subtitle">개인 정보, 학력 및 경력, 보유 기술</p>
             </div>
-        </div>
-    </section>
 
-    <!-- Timeline Section -->
-    <section id="timeline">
-        <div class="container">
-            <h2 class="section-title">이력</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>인하대학교 컴퓨터공학과</h3>
-                        <p>2021.03 입학 / 졸업 예정 2026.02</p>
+            <!-- 소개 Subsection -->
+            <div class="subsection">
+                <h2 class="subsection-title">소개</h2>
+                <div class="profile-grid">
+                    <div>
+                        <div class="profile-image">배</div>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>IGRUS WEB 특강</h3>
-                        <p>2021.09 ~ 2021.12</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Wrtn 그로스톤 프로그램</h3>
-                        <p>2023.11</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>GDSC CS 스터디</h3>
-                        <p>2024.03 ~ 2024.06</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>GDSC PS 스터디</h3>
-                        <p>2024.01 ~ 2024.06</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>CJ대한통운 미래기술 챌린지</h3>
-                        <p>2024.07 ~ 2024.08</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title">스킬</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Language</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">C#</span>
-                        <span class="skill-tag">C</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Kotlin</span>
-                        <span class="skill-tag">GLSL</span>
-                        <span class="skill-tag">Linux</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Database</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">Firebase</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Unity</span>
-                        <span class="skill-tag">Visual Studio</span>
-                        <span class="skill-tag">VS Code</span>
-                        <span class="skill-tag">PyCharm</span>
-                        <span class="skill-tag">IntelliJ</span>
-                        <span class="skill-tag">Eclipse</span>
-                        <span class="skill-tag">Android Studio</span>
-                        <span class="skill-tag">Ubuntu</span>
-                        <span class="skill-tag">Gentoo</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Etc</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Notion</span>
-                        <span class="skill-tag">Gradle</span>
-                        <span class="skill-tag">Discord</span>
-                        <span class="skill-tag">Slack</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Project01 Section -->
-    <section id="project01">
-        <div class="container">
-            <h2 class="section-title">프로젝트</h2>
-            <div class="projects-grid">
-                <div class="project-card" onclick="openModal('spaceVR')">
-                    <div class="project-image">VR Game</div>
-                    <div class="project-content">
-                        <h3 class="project-title">SPACE VR GAME</h3>
-                        <p class="project-description">외계인과 함께 Python 코딩으로 우주선을 운행해 탈출하는 학습형 VR 게임</p>
-                        <div class="project-keywords">
-                            <span class="keyword">Unity</span>
-                            <span class="keyword">C#</span>
-                            <span class="keyword">VR</span>
+                    <div class="contact-info">
+                        <h3 style="margin-bottom: 1.5rem; color: #2c3e50;">배소윤</h3>
+                        <div class="contact-item">
+                            <strong>이메일:</strong>
+                            <span>bsy00n@inavi.kr</span>
+                        </div>
+                        <div class="contact-item">
+                            <strong>휴대폰:</strong>
+                            <span>010-4233-6521</span>
+                        </div>
+                        <div class="contact-item">
+                            <strong>주소:</strong>
+                            <span>경기도 용인시 수지구 상현로 27</span>
+                        </div>
+                        <div class="contact-item">
+                            <strong>GitHub:</strong>
+                            <a href="https://github.com/BaeSyoon" target="_blank" style="color: #3498db;">https://github.com/BaeSyoon</a>
                         </div>
                     </div>
                 </div>
-                <div class="project-card" onclick="openModal('heartRate')">
-                    <div class="project-image">Mobile App</div>
-                    <div class="project-content">
-                        <h3 class="project-title">심박수 어플리케이션</h3>
-                        <p class="project-description">물류 현장 근로자 건강 관리를 위한 심박수 모니터링 앱</p>
-                        <div class="project-keywords">
-                            <span class="keyword">Android</span>
-                            <span class="keyword">Kotlin</span>
-                            <span class="keyword">Firebase</span>
+            </div>
+
+            <!-- 이력 Subsection -->
+            <div class="subsection">
+                <h2 class="subsection-title">이력</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2021.03 ~ 2026.02</div>
+                        <div class="timeline-content">
+                            <h4>인하대학교 컴퓨터공학과</h4>
+                            <p>학사 과정 (졸업 예정)</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2021.09 ~ 2021.12</div>
+                        <div class="timeline-content">
+                            <h4>IGRUS WEB 특강</h4>
+                            <p>웹 개발 기초 학습</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2023.11</div>
+                        <div class="timeline-content">
+                            <h4>Wrtn 그로스톤 프로그램</h4>
+                            <p>AI 기술 및 스타트업 경험</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024.01 ~ 2024.06</div>
+                        <div class="timeline-content">
+                            <h4>GDSC PS 스터디</h4>
+                            <p>알고리즘 문제 해결 스터디</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024.03 ~ 2024.06</div>
+                        <div class="timeline-content">
+                            <h4>GDSC CS 스터디</h4>
+                            <p>컴퓨터 과학 기초 스터디</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024.07 ~ 2024.08</div>
+                        <div class="timeline-content">
+                            <h4>CJ대한통운 미래기술 챌린지</h4>
+                            <p>물류 기술 혁신 프로젝트 참여</p>
                         </div>
                     </div>
                 </div>
-                <div class="project-card" onclick="openModal('ideaRoom')">
-                    <div class="project-image">Web Project</div>
-                    <div class="project-content">
-                        <h3 class="project-title">아이더룸</h3>
-                        <p class="project-description">웹 기반 프론트엔드 팀 프로젝트</p>
-                        <div class="project-keywords">
-                            <span class="keyword">HTML</span>
-                            <span class="keyword">CSS</span>
-                            <span class="keyword">JavaScript</span>
+            </div>
+
+            <!-- 스킬 Subsection -->
+            <div class="subsection">
+                <h2 class="subsection-title">스킬</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Language</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">C#</span>
+                            <span class="skill-tag">C</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">Kotlin</span>
+                            <span class="skill-tag">GLSL</span>
+                            <span class="skill-tag">Linux</span>
                         </div>
                     </div>
-                </div>
-                <div class="project-card" onclick="openModal('fpsGame')">
-                    <div class="project-image">FPS Game</div>
-                    <div class="project-content">
-                        <h3 class="project-title">FPS GAME</h3>
-                        <p class="project-description">OpenGL과 GLSL을 활용한 개인 FPS 게임 프로젝트</p>
-                        <div class="project-keywords">
-                            <span class="keyword">OpenGL</span>
-                            <span class="keyword">GLSL</span>
-                            <span class="keyword">C++</span>
+                    <div class="skill-category">
+                        <h4>Database</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">Firebase</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Tools</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Unity</span>
+                            <span class="skill-tag">Visual Studio</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">PyCharm</span>
+                            <span class="skill-tag">IntelliJ</span>
+                            <span class="skill-tag">Eclipse</span>
+                            <span class="skill-tag">Android Studio</span>
+                            <span class="skill-tag">Ubuntu</span>
+                            <span class="skill-tag">Gentoo</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Etc</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Notion</span>
+                            <span class="skill-tag">Gradle</span>
+                            <span class="skill-tag">Discord</span>
+                            <span class="skill-tag">Slack</span>
                         </div>
                     </div>
                 </div>
@@ -636,104 +533,200 @@
         </div>
     </section>
 
-    <!-- Troubleshooting Section -->
-    <section id="troubleshooting">
+    <!-- 2. VR 게임 Section -->
+    <section id="vr-game" class="main-section">
         <div class="container">
-            <h2 class="section-title">트러블슈팅</h2>
-            <div class="troubleshooting-list">
+            <div class="section-header">
+                <h1 class="section-title">VR 게임</h1>
+                <p class="section-subtitle">Python: Space Escape - 학습형 VR 게임 프로젝트</p>
+            </div>
+
+            <!-- 개요 Subsection -->
+            <div class="subsection">
+                <h2 class="subsection-title">개요</h2>
+                <div class="project-overview">
+                    <div>
+                        <div class="project-info">
+                            <p><strong>플랫폼:</strong> Meta Quest 2</p>
+                            <p><strong>개발 기간:</strong> 2025.03 ~ 2025.06</p>
+                            <p><strong>기술 스택:</strong> Unity 2022, XR Toolkit, C#</p>
+                            <p><strong>프로젝트 유형:</strong> 팀 프로젝트</p>
+                        </div>
+                        <p><strong>프로젝트 설명:</strong></p>
+                        <p>외계인과 함께 Python 코딩으로 우주선을 운행해 탈출하는 학습형 VR 게임입니다. 사용자는 VR 환경에서 직접 코드를 작성하며 우주선을 조작하고, 다양한 퍼즐을 해결하여 우주에서 탈출하는 것이 목표입니다.</p>
+                    </div>
+                    <div class="project-screenshot">
+                        VR Game Screenshot
+                    </div>
+                </div>
+            </div>
+
+            <!-- 주요 기능 Subsection -->
+            <div class="subsection">
+                <h2 class="subsection-title">주요 기능</h2>
+                <ul class="feature-list">
+                    <li><strong>키보드 입력 시스템:</strong> VR 환경에서 가상 키보드를 통한 Python 코드 입력</li>
+                    <li><strong>외계인 NPC 대화 시스템:</strong> 음성 및 텍스트 기반 상호작용</li>
+                    <li><strong>단계별 진행 시스템:</strong> 난이도별 코딩 문제 및 퍼즐 해결</li>
+                </ul>
+            </div>
+
+            <!-- 세부 기능 Subsection -->
+            <div class="subsection">
+                <h2 class="subsection-title">세부 기능</h2>
+                <ul class="feature-list">
+                    <li><strong>씬 전환:</strong> 부드러운 씬 전환 및 로딩 시스템</li>
+                    <li><strong>사운드/진동:</strong> 몰입감 향상을 위한 3D 사운드 및 햅틱 피드백</li>
+                    <li><strong>UI 시스템:</strong> VR 환경에 최적화된 직관적인 사용자 인터페이스</li>
+                    <li><strong>코루틴 활용:</strong> 비동기 처리를 통한 부드러운 게임 플레이</li>
+                </ul>
+            </div>
+
+            <!-- 트러블슈팅 Subsection -->
+            <div class="subsection">
+                <h2 class="subsection-title">트러블슈팅</h2>
+                
                 <div class="trouble-item">
                     <div class="trouble-header" onclick="toggleTrouble(this)">
                         <span>Oculus Link 연결 문제</span>
                         <span>+</span>
                     </div>
                     <div class="trouble-content">
-                        <div class="trouble-section">
-                            <h4>문제:</h4>
+                        <div class="trouble-detail">
+                            <h5>문제:</h5>
                             <p>Oculus Quest 2와 PC 간 연결이 불안정하여 VR 개발 테스트가 어려웠음</p>
                         </div>
-                        <div class="trouble-section">
-                            <h4>원인:</h4>
+                        <div class="trouble-detail">
+                            <h5>원인:</h5>
                             <p>Oculus 설정 디렉토리의 캐시 파일 충돌</p>
                         </div>
-                        <div class="trouble-section">
-                            <h4>해결:</h4>
+                        <div class="trouble-detail">
+                            <h5>시도한 방법:</h5>
+                            <p>USB 케이블 교체, 드라이버 재설치, Oculus 소프트웨어 재설치</p>
+                        </div>
+                        <div class="trouble-detail">
+                            <h5>최종 해결:</h5>
                             <p>설정 디렉토리 삭제 후 재설정으로 연결 안정화</p>
                         </div>
-                        <div class="trouble-section">
-                            <h4>교훈:</h4>
+                        <div class="trouble-detail">
+                            <h5>교훈:</h5>
                             <p>하드웨어 연결 문제는 소프트웨어 캐시 초기화로 해결될 수 있음</p>
                         </div>
                     </div>
                 </div>
+
                 <div class="trouble-item">
                     <div class="trouble-header" onclick="toggleTrouble(this)">
-                        <span>Unity 충돌 감지 오류</span>
+                        <span>외계인 충돌 버그</span>
                         <span>+</span>
                     </div>
                     <div class="trouble-content">
-                        <div class="trouble-section">
-                            <h4>문제:</h4>
-                            <p>게임 오브젝트 간 충돌 감지가 정상적으로 작동하지 않음</p>
+                        <div class="trouble-detail">
+                            <h5>문제:</h5>
+                            <p>외계인 NPC와 플레이어 간 충돌 감지가 정상적으로 작동하지 않음</p>
                         </div>
-                        <div class="trouble-section">
-                            <h4>원인:</h4>
-                            <p>Rigidbody 컴포넌트의 잘못된 설정</p>
+                        <div class="trouble-detail">
+                            <h5>원인:</h5>
+                            <p>Rigidbody 컴포넌트의 잘못된 설정 및 Collider 크기 문제</p>
                         </div>
-                        <div class="trouble-section">
-                            <h4>해결:</h4>
-                            <p>Rigidbody의 Is Kinematic 설정 조정 및 Collider 설정 재검토</p>
+                        <div class="trouble-detail">
+                            <h5>시도한 방법:</h5>
+                            <p>Collider 크기 조정, Layer 설정 변경, Physics Material 적용</p>
                         </div>
-                        <div class="trouble-section">
-                            <h4>교훈:</h4>
+                        <div class="trouble-detail">
+                            <h5>최종 해결:</h5>
+                            <p>Rigidbody의 Is Kinematic 설정 조정 및 Trigger 방식으로 변경</p>
+                        </div>
+                        <div class="trouble-detail">
+                            <h5>교훈:</h5>
                             <p>Unity 물리 시스템의 기본 설정을 정확히 이해하는 것이 중요</p>
                         </div>
                     </div>
                 </div>
+
                 <div class="trouble-item">
                     <div class="trouble-header" onclick="toggleTrouble(this)">
-                        <span>입력 UI 오류</span>
+                        <span>키보드 입력 오류</span>
                         <span>+</span>
                     </div>
                     <div class="trouble-content">
-                        <div class="trouble-section">
-                            <h4>문제:</h4>
-                            <p>사용자 입력 UI에서 텍스트 처리 오류 발생</p>
+                        <div class="trouble-detail">
+                            <h5>문제:</h5>
+                            <p>VR 환경에서 가상 키보드 입력이 간헐적으로 인식되지 않음</p>
                         </div>
-                        <div class="trouble-section">
-                            <h4>원인:</h4>
-                            <p>TextMeshPro 컴포넌트의 비동기 처리 문제</p>
+                        <div class="trouble-detail">
+                            <h5>원인:</h5>
+                            <p>TextMeshPro 컴포넌트의 비동기 처리 문제 및 입력 이벤트 충돌</p>
                         </div>
-                        <div class="trouble-section">
-                            <h4>해결:</h4>
-                            <p>TextMeshPro 처리 로직 변경 및 코루틴을 활용한 비동기 처리 개선</p>
+                        <div class="trouble-detail">
+                            <h5>시도한 방법:</h5>
+                            <p>입력 딜레이 추가, 이벤트 리스너 재설정, UI 업데이트 순서 조정</p>
                         </div>
-                        <div class="trouble-section">
-                            <h4>교훈:</h4>
-                            <p>UI 컴포넌트의 생명주기를 고려한 프로그래밍 필요</p>
+                        <div class="trouble-detail">
+                            <h5>최종 해결:</h5>
+                            <p>코루틴을 활용한 비동기 처리 개선 및 입력 버퍼 시스템 구현</p>
+                        </div>
+                        <div class="trouble-detail">
+                            <h5>교훈:</h5>
+                            <p>VR 환경에서는 일반적인 UI 처리와 다른 접근이 필요함</p>
                         </div>
                     </div>
                 </div>
+
                 <div class="trouble-item">
                     <div class="trouble-header" onclick="toggleTrouble(this)">
-                        <span>Unity 버전 문제</span>
+                        <span>XR 초기화 버그</span>
                         <span>+</span>
                     </div>
                     <div class="trouble-content">
-                        <div class="trouble-section">
-                            <h4>문제:</h4>
-                            <p>프로젝트 호환성 문제로 인한 빌드 오류</p>
+                        <div class="trouble-detail">
+                            <h5>문제:</h5>
+                            <p>XR 시스템 초기화 실패로 인한 앱 크래시 발생</p>
                         </div>
-                        <div class="trouble-section">
-                            <h4>원인:</h4>
-                            <p>Unity 버전 간 API 변경사항</p>
+                        <div class="trouble-detail">
+                            <h5>원인:</h5>
+                            <p>XR Toolkit 버전 호환성 문제 및 초기화 순서 오류</p>
                         </div>
-                        <div class="trouble-section">
-                            <h4>해결:</h4>
-                            <p>Unity 2022 LTS로 업그레이드하여 안정성 확보</p>
+                        <div class="trouble-detail">
+                            <h5>시도한 방법:</h5>
+                            <p>XR Toolkit 버전 다운그레이드, 초기화 코드 순서 변경</p>
                         </div>
-                        <div class="trouble-section">
-                            <h4>교훈:</h4>
-                            <p>LTS 버전 사용의 중요성과 버전 관리의 필요성</p>
+                        <div class="trouble-detail">
+                            <h5>최종 해결:</h5>
+                            <p>안정적인 XR Toolkit 버전 사용 및 예외 처리 강화</p>
+                        </div>
+                        <div class="trouble-detail">
+                            <h5>교훈:</h5>
+                            <p>VR 개발 시 안정적인 버전의 라이브러리 사용이 중요</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trouble-item">
+                    <div class="trouble-header" onclick="toggleTrouble(this)">
+                        <span>Unity 버전 호환성 문제</span>
+                        <span>+</span>
+                    </div>
+                    <div class="trouble-content">
+                        <div class="trouble-detail">
+                            <h5>문제:</h5>
+                            <p>팀원 간 Unity 버전 차이로 인한 프로젝트 호환성 문제</p>
+                        </div>
+                        <div class="trouble-detail">
+                            <h5>원인:</h5>
+                            <p>Unity 버전 간 API 변경사항 및 패키지 의존성 차이</p>
+                        </div>
+                        <div class="trouble-detail">
+                            <h5>시도한 방법:</h5>
+                            <p>버전 통일, 패키지 매니저 설정 동기화, 프로젝트 설정 공유</p>
+                        </div>
+                        <div class="trouble-detail">
+                            <h5>최종 해결:</h5>
+                            <p>Unity 2022 LTS로 통일하여 안정성 확보</p>
+                        </div>
+                        <div class="trouble-detail">
+                            <h5>교훈:</h5>
+                            <p>팀 프로젝트에서는 개발 환경 통일이 필수적</p>
                         </div>
                     </div>
                 </div>
@@ -741,56 +734,127 @@
         </div>
     </section>
 
-    <!-- Project02 Section -->
-    <section id="project02">
+    <!-- 3. 심박수 관리 앱 Section -->
+    <section id="heart-app" class="main-section">
         <div class="container">
-            <h2 class="section-title">프로젝트</h2>
-            <div class="projects-grid">
-                <div class="project-card" onclick="openModal('spaceVR')">
-                    <div class="project-image">VR Game</div>
-                    <div class="project-content">
-                        <h3 class="project-title">SPACE VR GAME</h3>
-                        <p class="project-description">외계인과 함께 Python 코딩으로 우주선을 운행해 탈출하는 학습형 VR 게임</p>
-                        <div class="project-keywords">
-                            <span class="keyword">Unity</span>
-                            <span class="keyword">C#</span>
-                            <span class="keyword">VR</span>
+            <div class="section-header">
+                <h1 class="section-title">심박수 관리 앱</h1>
+                <p class="section-subtitle">물류 현장 근로자 건강 관리 애플리케이션</p>
+            </div>
+
+            <!-- 개요 Subsection -->
+            <div class="subsection">
+                <h2 class="subsection-title">개요</h2>
+                <div class="project-overview">
+                    <div>
+                        <div class="project-info">
+                            <p><strong>개발 기간:</strong> 2024.07 ~ 2024.08</p>
+                            <p><strong>플랫폼:</strong> Android Studio + Wear OS</p>
+                            <p><strong>기술 스택:</strong> Kotlin, Firebase, Android SDK</p>
+                            <p><strong>프로젝트 목적:</strong> CJ대한통운 미래기술 챌린지 참가작</p>
+                        </div>
+                        <p><strong>프로젝트 설명:</strong></p>
+                        <p>물류 현장 근로자의 건강 관리를 위한 심박수 모니터링 애플리케이션입니다. 실시간 심박수 데이터를 수집하고 분석하여 근로자의 건강 상태를 모니터링하고 위험 상황을 사전에 감지하는 것이 목표입니다.</p>
+                    </div>
+                    <div class="project-screenshot">
+                        Heart Rate App Screenshot
+                    </div>
+                </div>
+            </div>
+
+            <!-- 기능 Subsection -->
+            <div class="subsection">
+                <h2 class="subsection-title">기능</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <div>
+                        <h4 style="color: #3498db; margin-bottom: 1rem;">일반회원 모드</h4>
+                        <ul class="feature-list">
+                            <li>회원가입 및 로그인 시스템</li>
+                            <li>실시간 심박수 그래프 확인</li>
+                            <li>건강 이상 신고 이력 조회</li>
+                            <li>개인 건강 데이터 관리</li>
+                            <li>알림 및 경고 시스템</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #e74c3c; margin-bottom: 1rem;">관리자 모드</h4>
+                        <ul class="feature-list">
+                            <li>전체 회원 데이터 관리</li>
+                            <li>시스템 설정 기능</li>
+                            <li>마스킹된 개인정보 표시</li>
+                            <li>통계 및 리포트 생성</li>
+                            <li>위험 상황 모니터링</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="margin-top: 2rem;">
+                    <h4 style="color: #27ae60; margin-bottom: 1rem;">Firebase 연동</h4>
+                    <ul class="feature-list">
+                        <li>실시간 데이터베이스를 통한 심박수 데이터 동기화</li>
+                        <li>사용자 인증 및 권한 관리</li>
+                        <li>클라우드 저장소를 통한 데이터 백업</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 트러블슈팅 Subsection -->
+            <div class="subsection">
+                <h2 class="subsection-title">트러블슈팅</h2>
+                
+                <div class="trouble-item">
+                    <div class="trouble-header" onclick="toggleTrouble(this)">
+                        <span>Firebase 실시간 데이터 동기화 문제</span>
+                        <span>+</span>
+                    </div>
+                    <div class="trouble-content">
+                        <div class="trouble-detail">
+                            <h5>문제:</h5>
+                            <p>여러 사용자의 심박수 데이터가 실시간으로 동기화되지 않는 문제 발생</p>
+                        </div>
+                        <div class="trouble-detail">
+                            <h5>원인:</h5>
+                            <p>Firebase Realtime Database의 리스너 설정 오류 및 네트워크 연결 불안정</p>
+                        </div>
+                        <div class="trouble-detail">
+                            <h5>시도한 방법:</h5>
+                            <p>리스너 재설정, 네트워크 상태 확인, 데이터베이스 규칙 검토</p>
+                        </div>
+                        <div class="trouble-detail">
+                            <h5>최종 해결:</h5>
+                            <p>ValueEventListener를 ChildEventListener로 변경하고 오프라인 지원 활성화</p>
+                        </div>
+                        <div class="trouble-detail">
+                            <h5>교훈:</h5>
+                            <p>실시간 데이터베이스 사용 시 적절한 리스너 선택과 오프라인 지원의 중요성</p>
                         </div>
                     </div>
                 </div>
-                <div class="project-card" onclick="openModal('heartRate')">
-                    <div class="project-image">Mobile App</div>
-                    <div class="project-content">
-                        <h3 class="project-title">심박수 어플리케이션</h3>
-                        <p class="project-description">물류 현장 근로자 건강 관리를 위한 심박수 모니터링 앱</p>
-                        <div class="project-keywords">
-                            <span class="keyword">Android</span>
-                            <span class="keyword">Kotlin</span>
-                            <span class="keyword">Firebase</span>
-                        </div>
+
+                <div class="trouble-item">
+                    <div class="trouble-header" onclick="toggleTrouble(this)">
+                        <span>Wear OS 센서 데이터 수집 오류</span>
+                        <span>+</span>
                     </div>
-                </div>
-                <div class="project-card" onclick="openModal('ideaRoom')">
-                    <div class="project-image">Web Project</div>
-                    <div class="project-content">
-                        <h3 class="project-title">아이더룸</h3>
-                        <p class="project-description">웹 기반 프론트엔드 팀 프로젝트</p>
-                        <div class="project-keywords">
-                            <span class="keyword">HTML</span>
-                            <span class="keyword">CSS</span>
-                            <span class="keyword">JavaScript</span>
+                    <div class="trouble-content">
+                        <div class="trouble-detail">
+                            <h5>문제:</h5>
+                            <p>Wear OS 기기에서 심박수 센서 데이터를 정확히 읽어오지 못함</p>
                         </div>
-                    </div>
-                </div>
-                <div class="project-card" onclick="openModal('fpsGame')">
-                    <div class="project-image">FPS Game</div>
-                    <div class="project-content">
-                        <h3 class="project-title">FPS GAME</h3>
-                        <p class="project-description">OpenGL과 GLSL을 활용한 개인 FPS 게임 프로젝트</p>
-                        <div class="project-keywords">
-                            <span class="keyword">OpenGL</span>
-                            <span class="keyword">GLSL</span>
-                            <span class="keyword">C++</span>
+                        <div class="trouble-detail">
+                            <h5>원인:</h5>
+                            <p>센서 권한 설정 누락 및 센서 샘플링 레이트 설정 문제</p>
+                        </div>
+                        <div class="trouble-detail">
+                            <h5>시도한 방법:</h5>
+                            <p>권한 요청 코드 추가, 센서 매니저 재초기화, 다양한 샘플링 레이트 테스트</p>
+                        </div>
+                        <div class="trouble-detail">
+                            <h5>최종 해결:</h5>
+                            <p>BODY_SENSORS 권한 추가 및 적절한 센서 딜레이 설정으로 안정적인 데이터 수집</p>
+                        </div>
+                        <div class="trouble-detail">
+                            <h5>교훈:</h5>
+                            <p>하드웨어 센서 사용 시 권한과 설정의 정확한 이해 필요</p>
                         </div>
                     </div>
                 </div>
@@ -798,244 +862,63 @@
         </div>
     </section>
 
-
-    <!-- Troubleshooting Section -->
-    <section id="troubleshooting">
+    <!-- 4. 활동 Section -->
+    <section id="activities" class="main-section">
         <div class="container">
-            <h2 class="section-title">트러블슈팅</h2>
-            <div class="troubleshooting-list">
-                <div class="trouble-item">
-                    <div class="trouble-header" onclick="toggleTrouble(this)">
-                        <span>Oculus Link 연결 문제</span>
-                        <span>+</span>
+            <div class="section-header">
+                <h1 class="section-title">활동</h1>
+                <p class="section-subtitle">학습 활동 및 개인 프로젝트</p>
+            </div>
+
+            <div class="subsection">
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-icon">📚</div>
+                        <h3>알고리즘 스터디 (GDSC)</h3>
+                        <p><strong>기간:</strong> 2024.01 ~ 2024.06</p>
+                        <p>Google Developer Student Clubs에서 진행한 알고리즘 문제 해결 스터디입니다. 매주 정기적으로 모여 다양한 알고리즘 문제를 해결하고 코드 리뷰를 통해 실력을 향상시켰습니다.</p>
+                        <p><strong>주요 활동:</strong> 백준, 프로그래머스 문제 해결, 코드 리뷰, 알고리즘 이론 학습</p>
                     </div>
-                    <div class="trouble-content">
-                        <div class="trouble-section">
-                            <h4>문제:</h4>
-                            <p>Oculus Quest 2와 PC 간 연결이 불안정하여 VR 개발 테스트가 어려웠음</p>
-                        </div>
-                        <div class="trouble-section">
-                            <h4>원인:</h4>
-                            <p>Oculus 설정 디렉토리의 캐시 파일 충돌</p>
-                        </div>
-                        <div class="trouble-section">
-                            <h4>해결:</h4>
-                            <p>설정 디렉토리 삭제 후 재설정으로 연결 안정화</p>
-                        </div>
-                        <div class="trouble-section">
-                            <h4>교훈:</h4>
-                            <p>하드웨어 연결 문제는 소프트웨어 캐시 초기화로 해결될 수 있음</p>
-                        </div>
+
+                    <div class="activity-card">
+                        <div class="activity-icon">🎮</div>
+                        <h3>FPS Game (OpenGL 기반 그래픽스)</h3>
+                        <p><strong>기간:</strong> 개인 프로젝트</p>
+                        <p>OpenGL과 GLSL을 활용하여 개발한 3D FPS 게임입니다. 저수준 그래픽스 프로그래밍을 통해 3D 렌더링 파이프라인을 직접 구현하였습니다.</p>
+                        <p><strong>기술 스택:</strong> OpenGL, GLSL, C++</p>
+                        <p><strong>주요 기능:</strong> 3D 모델 렌더링, 실시간 조명, 텍스처 매핑, 충돌 감지</p>
                     </div>
-                </div>
-                <div class="trouble-item">
-                    <div class="trouble-header" onclick="toggleTrouble(this)">
-                        <span>Unity 충돌 감지 오류</span>
-                        <span>+</span>
+
+                    <div class="activity-card">
+                        <div class="activity-icon">🌐</div>
+                        <h3>ITheRoom (웹 프론트엔드 프로젝트)</h3>
+                        <p><strong>기간:</strong> 팀 프로젝트</p>
+                        <p>HTML, CSS, JavaScript를 활용한 웹 개발 팀 프로젝트입니다. 사용자 친화적인 인터페이스와 반응형 디자인을 구현하였습니다.</p>
+                        <p><strong>기술 스택:</strong> HTML, CSS, JavaScript</p>
+                        <p><strong>주요 기능:</strong> 반응형 웹 디자인, 사용자 인터랙션, 모던 웹 표준 준수</p>
                     </div>
-                    <div class="trouble-content">
-                        <div class="trouble-section">
-                            <h4>문제:</h4>
-                            <p>게임 오브젝트 간 충돌 감지가 정상적으로 작동하지 않음</p>
-                        </div>
-                        <div class="trouble-section">
-                            <h4>원인:</h4>
-                            <p>Rigidbody 컴포넌트의 잘못된 설정</p>
-                        </div>
-                        <div class="trouble-section">
-                            <h4>해결:</h4>
-                            <p>Rigidbody의 Is Kinematic 설정 조정 및 Collider 설정 재검토</p>
-                        </div>
-                        <div class="trouble-section">
-                            <h4>교훈:</h4>
-                            <p>Unity 물리 시스템의 기본 설정을 정확히 이해하는 것이 중요</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="trouble-item">
-                    <div class="trouble-header" onclick="toggleTrouble(this)">
-                        <span>입력 UI 오류</span>
-                        <span>+</span>
-                    </div>
-                    <div class="trouble-content">
-                        <div class="trouble-section">
-                            <h4>문제:</h4>
-                            <p>사용자 입력 UI에서 텍스트 처리 오류 발생</p>
-                        </div>
-                        <div class="trouble-section">
-                            <h4>원인:</h4>
-                            <p>TextMeshPro 컴포넌트의 비동기 처리 문제</p>
-                        </div>
-                        <div class="trouble-section">
-                            <h4>해결:</h4>
-                            <p>TextMeshPro 처리 로직 변경 및 코루틴을 활용한 비동기 처리 개선</p>
-                        </div>
-                        <div class="trouble-section">
-                            <h4>교훈:</h4>
-                            <p>UI 컴포넌트의 생명주기를 고려한 프로그래밍 필요</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="trouble-item">
-                    <div class="trouble-header" onclick="toggleTrouble(this)">
-                        <span>Unity 버전 문제</span>
-                        <span>+</span>
-                    </div>
-                    <div class="trouble-content">
-                        <div class="trouble-section">
-                            <h4>문제:</h4>
-                            <p>프로젝트 호환성 문제로 인한 빌드 오류</p>
-                        </div>
-                        <div class="trouble-section">
-                            <h4>원인:</h4>
-                            <p>Unity 버전 간 API 변경사항</p>
-                        </div>
-                        <div class="trouble-section">
-                            <h4>해결:</h4>
-                            <p>Unity 2022 LTS로 업그레이드하여 안정성 확보</p>
-                        </div>
-                        <div class="trouble-section">
-                            <h4>교훈:</h4>
-                            <p>LTS 버전 사용의 중요성과 버전 관리의 필요성</p>
-                        </div>
+
+                    <div class="activity-card">
+                        <div class="activity-icon">🔧</div>
+                        <h3>Atmega127 프로그래밍</h3>
+                        <p><strong>기간:</strong> 학습 프로젝트</p>
+                        <p>임베디드 시스템 프로그래밍 학습을 위한 Atmega127 마이크로컨트롤러 프로그래밍 프로젝트입니다. 하드웨어와 소프트웨어의 상호작용을 이해하고 실습하였습니다.</p>
+                        <p><strong>기술 스택:</strong> C, Atmega127, 임베디드 시스템</p>
+                        <p><strong>주요 학습:</strong> 마이크로컨트롤러 프로그래밍, 센서 제어, 통신 프로토콜</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Other Activities Section -->
-    <section id="activities">
-        <div class="container">
-            <h2 class="section-title">기타 활동</h2>
-            <div class="activities-grid">
-                <div class="activity-card">
-                    <div class="activity-icon">📚</div>
-                    <h3>알고리즘 스터디 (GDSC)</h3>
-                    <p>Google Developer Student Clubs에서 진행한 알고리즘 문제 해결 스터디</p>
-                </div>
-                <div class="activity-card">
-                    <div class="activity-icon">🌐</div>
-                    <h3>아이더룸 (웹 프로젝트)</h3>
-                    <p>HTML, CSS, JavaScript를 활용한 웹 개발 팀 프로젝트</p>
-                </div>
-                <div class="activity-card">
-                    <div class="activity-icon">🎮</div>
-                    <h3>FPS GAME (OpenGL 기반 그래픽스)</h3>
-                    <p>OpenGL과 GLSL을 활용한 3D 그래픽스 프로그래밍 학습</p>
-                </div>
-                <div class="activity-card">
-                    <div class="activity-icon">🔧</div>
-                    <h3>Atmega127 프로그래밍</h3>
-                    <p>임베디드 시스템 프로그래밍 학습 및 실습</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modals -->
-    <div id="spaceVR" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Python: Space Escape</h2>
-            <p><strong>플랫폼:</strong> Meta Quest 2</p>
-            <p><strong>개발 기간:</strong> 2025.03 ~ 2025.06</p>
-            <p><strong>기술 스택:</strong> Unity 2022, XR Toolkit, C#</p>
-            <h3>소개</h3>
-            <p>외계인과 함께 Python 코딩으로 우주선을 운행해 탈출하는 학습형 VR 게임입니다. 사용자는 VR 환경에서 직접 코드를 작성하며 우주선을 조작하고, 다양한 퍼즐을 해결하여 우주에서 탈출하는 것이 목표입니다.</p>
-            <h3>주요 기능</h3>
-            <ul>
-                <li>VR 환경에서의 키보드 입력 시스템</li>
-                <li>외계인 캐릭터와의 상호작용</li>
-                <li>단계별 게임 진행 시스템</li>
-                <li>Python 코드 실행 및 검증</li>
-                <li>몰입감 있는 우주 환경 구현</li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="heartRate" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>심박수 어플리케이션</h2>
-            <p><strong>개발 기간:</strong> 2024.07 ~ 2024.08</p>
-            <p><strong>플랫폼:</strong> Android Studio + Wear OS</p>
-            <p><strong>기술 스택:</strong> Kotlin, Firebase, Android SDK</p>
-            <h3>소개</h3>
-            <p>물류 현장 근로자의 건강 관리를 위한 심박수 모니터링 애플리케이션입니다. CJ대한통운 미래기술 챌린지 참가작으로 개발되었습니다.</p>
-            <h3>주요 기능</h3>
-            <h4>일반회원 모드:</h4>
-            <ul>
-                <li>회원가입 및 로그인 시스템</li>
-                <li>실시간 심박수 그래프 확인</li>
-                <li>건강 이상 신고 이력 조회</li>
-                <li>개인 건강 데이터 관리</li>
-            </ul>
-            <h4>관리자 모드:</h4>
-            <ul>
-                <li>전체 회원 데이터 관리</li>
-                <li>시스템 설정 기능</li>
-                <li>마스킹된 개인정보 표시</li>
-                <li>통계 및 리포트 생성</li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="ideaRoom" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>아이더룸</h2>
-            <p><strong>기술 스택:</strong> HTML, CSS, JavaScript</p>
-            <p><strong>프로젝트 유형:</strong> 웹 프론트엔드 팀 프로젝트</p>
-            <h3>소개</h3>
-            <p>웹 기술을 활용한 프론트엔드 개발 팀 프로젝트입니다. 사용자 친화적인 인터페이스와 반응형 디자인을 구현하였습니다.</p>
-            <h3>주요 기능</h3>
-            <ul>
-                <li>반응형 웹 디자인</li>
-                <li>사용자 인터랙션 구현</li>
-                <li>모던 웹 표준 준수</li>
-                <li>크로스 브라우저 호환성</li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="fpsGame" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>FPS GAME</h2>
-            <p><strong>기술 스택:</strong> OpenGL, GLSL, C++</p>
-            <p><strong>프로젝트 유형:</strong> 개인 프로젝트</p>
-            <h3>소개</h3>
-            <p>OpenGL과 GLSL을 활용하여 개발한 3D FPS 게임입니다. 저수준 그래픽스 프로그래밍을 통해 3D 렌더링 파이프라인을 직접 구현하였습니다.</p>
-            <h3>주요 기능</h3>
-            <ul>
-                <li>3D 모델 렌더링</li>
-                <li>실시간 조명 시스템</li>
-                <li>텍스처 매핑</li>
-                <li>충돌 감지 시스템</li>
-                <li>파티클 시스템</li>
-                <li>사운드 시스템</li>
-            </ul>
-        </div>
-    </div>
 
     <script>
         // Mobile menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        }));
-
-        // Smooth scrolling
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1046,25 +929,9 @@
                         block: 'start'
                     });
                 }
+                // Close mobile menu if open
+                document.querySelector('.nav-links').classList.remove('active');
             });
-        });
-
-        // Modal functionality
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'block';
-        }
-
-        // Close modal when clicking on close button or outside modal
-        document.querySelectorAll('.close').forEach(closeBtn => {
-            closeBtn.addEventListener('click', function() {
-                this.closest('.modal').style.display = 'none';
-            });
-        });
-
-        window.addEventListener('click', function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-            }
         });
 
         // Troubleshooting toggle
@@ -1076,11 +943,12 @@
                 content.classList.remove('active');
                 icon.textContent = '+';
             } else {
-                // Close all other items
-                document.querySelectorAll('.trouble-content').forEach(item => {
+                // Close all other items in the same section
+                const section = element.closest('.subsection');
+                section.querySelectorAll('.trouble-content').forEach(item => {
                     item.classList.remove('active');
                 });
-                document.querySelectorAll('.trouble-header span:last-child').forEach(icon => {
+                section.querySelectorAll('.trouble-header span:last-child').forEach(icon => {
                     icon.textContent = '+';
                 });
                 
@@ -1090,16 +958,28 @@
             }
         }
 
-        // Add scroll effect to navigation
+        // Highlight active navigation item on scroll
         window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(255, 255, 255, 0.95)';
-                nav.style.backdropFilter = 'blur(10px)';
-            } else {
-                nav.style.background = '#fff';
-                nav.style.backdropFilter = 'none';
-            }
+            const sections = document.querySelectorAll('.main-section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.background = '';
+                link.style.color = '';
+                if (link.getAttribute('href') === '#' + current) {
+                    link.style.background = '#3498db';
+                    link.style.color = 'white';
+                }
+            });
         });
     </script>
 </body>
