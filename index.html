@@ -374,6 +374,115 @@
                 font-size: 1.5rem;
             }
         }
+
+        /* Feature Block Styles */
+        .feature-block {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            overflow: hidden;
+            border-left: 4px solid #3498db;
+        }
+
+        .feature-title {
+            background: #f8f9fa;
+            color: #2c3e50;
+            font-size: 1.4rem;
+            font-weight: bold;
+            padding: 1.5rem 2rem;
+            margin: 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .feature-content {
+            padding: 2rem;
+        }
+
+        .feature-description {
+            margin-bottom: 2rem;
+        }
+
+        .feature-description p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        .feature-media {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .media-item {
+            text-align: center;
+        }
+
+        .media-placeholder {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .media-placeholder:hover {
+            transform: translateY(-2px);
+        }
+
+        .media-placeholder span {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .media-placeholder p {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .media-caption {
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
+            margin: 0;
+        }
+
+        /* Responsive adjustments for feature blocks */
+        @media (max-width: 768px) {
+            .feature-content {
+                padding: 1.5rem;
+            }
+            
+            .feature-title {
+                padding: 1rem 1.5rem;
+                font-size: 1.2rem;
+            }
+            
+            .media-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .media-placeholder {
+                min-height: 120px;
+                padding: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -437,7 +546,7 @@
                 <h2 class="subsection-title">이력</h2>
                 <div class="timeline">
                     <div class="timeline-item">
-                        <div class="timeline-date">2021.03</div>
+                        <div class="timeline-date">2021.03 ~ 2026.02</div>
                         <div class="timeline-content">
                             <h4>인하대학교 컴퓨터공학과</h4>
                             <p>학사 과정 (졸업 예정)</p>
@@ -454,10 +563,10 @@
                         <div class="timeline-date">2023.11</div>
                         <div class="timeline-content">
                             <h4>Wrtn 그로스톤 프로그램</h4>
-                            <p>AI 기술 및 스타트업 경험</p>
+                            <p>AI 기술 및 웹 프로젝트 경험</p>
                         </div>
                     </div>
-                    <div class="timeline-item">
+                     <div class="timeline-item">
                         <div class="timeline-date">2023.09 ~ 2023.12</div>
                         <div class="timeline-content">
                             <h4>GDSC CS 스터디</h4>
@@ -467,7 +576,7 @@
                     <div class="timeline-item">
                         <div class="timeline-date">2024.03 ~ 2024.06</div>
                         <div class="timeline-content">
-                            <h4>GDSC CS 스터디</h4>
+                            <h4>GDSC PS 스터디</h4>
                             <p>알고리즘 문제 해결 스터디</p>
                         </div>
                     </div>
@@ -557,7 +666,7 @@
                             <p><strong>플랫폼:</strong> Meta Quest 2</p>
                             <p><strong>개발 기간:</strong> 2025.03 ~ 2025.06</p>
                             <p><strong>기술 스택:</strong> Unity 2022, XR Toolkit, C#</p>
-                            <p><strong>프로젝트 유형:</strong> 팀 프로젝트 (3인)</p>
+                            <p><strong>프로젝트 유형:</strong> 팀 프로젝트</p>
                         </div>
                         <p><strong>프로젝트 설명:</strong></p>
                         <p>외계인과 함께 Python 코딩으로 우주선을 운행해 탈출하는 학습형 VR 게임입니다. 사용자는 VR 환경에서 직접 코드를 작성하며 우주선을 조작하고, 다양한 퍼즐을 해결하여 우주에서 탈출하는 것이 목표입니다.</p>
@@ -571,11 +680,114 @@
             <!-- 주요 기능 Subsection -->
             <div class="subsection">
                 <h2 class="subsection-title">주요 기능</h2>
-                <ul class="feature-list">
-                    <li><strong>키보드 입력 시스템:</strong> VR 환경에서 가상 키보드를 통한 Python 코드 입력</li>
-                    <li><strong>외계인 NPC 대화 시스템:</strong> 음성 및 텍스트 기반 상호작용</li>
-                    <li><strong>단계별 진행 시스템:</strong> 난이도별 코딩 문제 및 퍼즐 해결</li>
-                </ul>
+                
+                <!-- Feature 1: 키보드와 모니터, 전송버튼 -->
+                <div class="feature-block">
+                    <h3 class="feature-title">1. 키보드와 모니터, 전송버튼</h3>
+                    <div class="feature-content">
+                        <div class="feature-description">
+                            <p>키보드는 컨트롤러 또는 레이저 포인터를 통해 입력합니다. 입력한 문자는 모니터에 출력되며, 전송 버튼을 누르면 Python 파서를 통해 정답 여부가 자동 판단됩니다.</p>
+                            <p>정답일 경우 성공 효과가 나타나고, 오답은 재입력이 가능합니다. 사용자는 VR 환경에서 직관적으로 코드를 작성하고 즉시 피드백을 받을 수 있습니다.</p>
+                        </div>
+                        <div class="feature-media">
+                            <div class="media-grid">
+                                <div class="media-item">
+                                    <div class="media-placeholder">
+                                        <span>📹</span>
+                                        <p>키보드 입력 및 모니터 출력</p>
+                                    </div>
+                                    <p class="media-caption">컨트롤러를 통한 가상 키보드 입력 시연</p>
+                                </div>
+                                <div class="media-item">
+                                    <div class="media-placeholder">
+                                        <span>📹</span>
+                                        <p>전송 후 성공 효과</p>
+                                    </div>
+                                    <p class="media-caption">정답 입력 시 나타나는 시각적 피드백</p>
+                                </div>
+                                <div class="media-item">
+                                    <div class="media-placeholder">
+                                        <span>📹</span>
+                                        <p>Python 파서 정답 처리</p>
+                                    </div>
+                                    <p class="media-caption">실시간 코드 검증 및 결과 처리 로직</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 2: 외계인 -->
+                <div class="feature-block">
+                    <h3 class="feature-title">2. 외계인</h3>
+                    <div class="feature-content">
+                        <div class="feature-description">
+                            <p>JSON 기반 대사 데이터를 연동하여 상황에 따라 외계인의 반응이 달라집니다. 애니메이터로 상태 전환, 코루틴으로 대사 타이밍을 처리합니다.</p>
+                            <p>외계인은 항상 플레이어(HMD)를 바라보며, 일정 거리 내에서는 따라옵니다. 충돌 시 소리와 진동 피드백이 발생하여 몰입감을 높입니다.</p>
+                        </div>
+                        <div class="feature-media">
+                            <div class="media-grid">
+                                <div class="media-item">
+                                    <div class="media-placeholder">
+                                        <span>📹</span>
+                                        <p>대사 및 애니메이터 처리</p>
+                                    </div>
+                                    <p class="media-caption">상황별 외계인 대사 시스템 및 애니메이션</p>
+                                </div>
+                                <div class="media-item">
+                                    <div class="media-placeholder">
+                                        <span>📹</span>
+                                        <p>시선 및 이동</p>
+                                    </div>
+                                    <p class="media-caption">플레이어 추적 및 시선 처리 시스템</p>
+                                </div>
+                                <div class="media-item">
+                                    <div class="media-placeholder">
+                                        <span>📹</span>
+                                        <p>충돌 시 처리</p>
+                                    </div>
+                                    <p class="media-caption">충돌 감지 및 햅틱 피드백 구현</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 3: 게임 단계 처리 -->
+                <div class="feature-block">
+                    <h3 class="feature-title">3. 게임 단계 처리</h3>
+                    <div class="feature-content">
+                        <div class="feature-description">
+                            <p>전체 흐름은 GameStageManager로 중앙 제어하며, Enum 기반 상태 관리 구조를 사용합니다. 각 단계는 외계인의 대사 → 사용자 입력 → 정답 판단 → 피드백 및 다음 단계 전환 순서로 진행됩니다.</p>
+                            <p>게임 종료 시 문이 열리며, StartMenu로 회귀할 수 있습니다. 코루틴을 통해 이벤트 타이밍을 정확히 제어하여 부드러운 게임 플레이를 제공합니다.</p>
+                        </div>
+                        <div class="feature-media">
+                            <div class="media-grid">
+                                <div class="media-item">
+                                    <div class="media-placeholder">
+                                        <span>📊</span>
+                                        <p>게임 단계 플로우차트</p>
+                                    </div>
+                                    <p class="media-caption">GameStageManager 기반 상태 관리 구조</p>
+                                </div>
+                                <div class="media-item">
+                                    <div class="media-placeholder">
+                                        <span>📹</span>
+                                        <p>단계 전환 시연</p>
+                                    </div>
+                                    <p class="media-caption">단계별 진행 과정 및 전환 효과</p>
+                                </div>
+                                <div class="media-item">
+                                    <div class="media-placeholder">
+                                        <span>📹</span>
+                                        <p>게임 종료 시퀀스</p>
+                                    </div>
+                                    <p class="media-caption">문 열림 효과 및 메뉴 복귀 시스템</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- 세부 기능 Subsection -->
