@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ben의 포트폴리오</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      scroll-behavior: smooth;
+    }
+    body {
+      display: flex;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 200px;
+      background: #f9f9f9;
+      border-left: 1px solid #ccc;
+      padding-top: 20px;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+    nav li {
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    nav li.active {
+      font-weight: bold;
+      background: #ddd;
+    }
+    main {
+      flex: 1;
+      padding: 40px;
+      margin-right: 200px;
+    }
+    section {
+      height: 100vh;
+      padding-top: 60px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #ccc;
+    }
+    h2 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section id="intro">
+      <h2>소개</h2>
+      <p>여기에 Ben 님의 자기소개를 입력하세요.</p>
+    </section>
+    <section id="skills">
+      <h2>기술 스택</h2>
+      <p>예: Python, C++, PySide6, Qt6, pandas, FastAPI...</p>
+    </section>
+    <section id="projects">
+      <h2>프로젝트</h2>
+      <p>VR 게임, 텔레그램 봇, 자동 문서 생성기 등</p>
+    </section>
+    <section id="contact">
+      <h2>연락처</h2>
+      <p>Email: ben@example.com<br>GitHub: github.com/ben</p>
+    </section>
+  </main>
+
+  <nav>
+    <ul>
+      <li data-target="intro">소개</li>
+      <li data-target="skills">기술 스택</li>
+      <li data-target="projects">프로젝트</li>
+      <li data-target="contact">연락처</li>
+    </ul>
+  </nav>
+
+  <script>
+    const navItems = document.querySelectorAll('nav li');
+
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const targetId = item.getAttribute('data-target');
+        const target = document.getElementById(targetId);
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    const sections = document.querySelectorAll('section');
+
+    window.addEventListener('scroll', () => {
+      let current = "";
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 100) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navItems.forEach(li => {
+        li.classList.remove("active");
+        if (li.getAttribute("data-target") === current) {
+          li.classList.add("active");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
