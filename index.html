@@ -1,154 +1,943 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ben의 포트폴리오</title>
-  <style>
-    :root {
-      --bg-color: #f9f9f9;
-      --text-color: #222;
-      --accent-color: #007acc;
-      --highlight-color: #e0e0e0;
-      --nav-bg: #ffffff;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배소윤 - 포트폴리오</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg-color: #1e1e1e;
-        --text-color: #e0e0e0;
-        --accent-color: #4fc3f7;
-        --highlight-color: #333;
-        --nav-bg: #2c2c2c;
-      }
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      scroll-behavior: smooth;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    body {
-      display: flex;
-    }
+        /* Navigation */
+        nav {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
 
-    nav {
-      position: fixed;
-      top: 0;
-      right: 0;
-      height: 100vh;
-      width: 200px;
-      background: var(--nav-bg);
-      border-left: 1px solid #8884;
-      padding-top: 20px;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.05);
-    }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
 
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
 
-    nav li {
-      padding: 12px 20px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-    nav li:hover {
-      background: var(--highlight-color);
-    }
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-    nav li.active {
-      font-weight: bold;
-      background: var(--accent-color);
-      color: white;
-    }
+        .nav-link:hover {
+            color: #3498db;
+        }
 
-    main {
-      flex: 1;
-      padding: 40px;
-      margin-right: 200px;
-    }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
 
-    section {
-      height: 100vh;
-      padding-top: 60px;
-      box-sizing: border-box;
-      border-bottom: 1px solid #ccc3;
-    }
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
 
-    h2 {
-      margin-top: 0;
-      border-left: 5px solid var(--accent-color);
-      padding-left: 10px;
-    }
-  </style>
+        /* Sections */
+        section {
+            padding: 100px 0 80px;
+            min-height: 100vh;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0.5rem 0;
+        }
+
+        .contact-item strong {
+            width: 80px;
+            color: #2c3e50;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: #3498db;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background: inherit;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background: #3498db;
+            border: 4px solid #fff;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background: white;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: #ecf0f1;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #2c3e50;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .project-description {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .project-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .keyword {
+            background: #3498db;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #000;
+        }
+
+        /* Troubleshooting */
+        .troubleshooting-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .trouble-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .trouble-header {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .trouble-content {
+            padding: 1.5rem;
+            display: none;
+        }
+
+        .trouble-content.active {
+            display: block;
+        }
+
+        .trouble-section {
+            margin-bottom: 1rem;
+        }
+
+        .trouble-section h4 {
+            color: #e74c3c;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Other Activities */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .activity-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .activity-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 21px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <main>
-    <section id="intro">
-      <h2>소개</h2>
-      <p>여기에 Ben 님의 자기소개를 입력하세요.</p>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">배소윤</div>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">소개</a></li>
+                <li><a href="#timeline" class="nav-link">이력</a></li>
+                <li><a href="#skills" class="nav-link">스킬</a></li>
+                <li><a href="#projects" class="nav-link">프로젝트</a></li>
+                <li><a href="#troubleshooting" class="nav-link">트러블슈팅</a></li>
+                <li><a href="#activities" class="nav-link">기타 활동</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">소개</h2>
+            <div class="about-content">
+                <div class="profile-image">배</div>
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 1.5rem; color: #2c3e50;">배소윤</h3>
+                    <div class="contact-item">
+                        <strong>이메일:</strong>
+                        <span>bsy00n@inavi.kr</span>
+                    </div>
+                    <div class="contact-item">
+                        <strong>휴대폰:</strong>
+                        <span>010-4233-6521</span>
+                    </div>
+                    <div class="contact-item">
+                        <strong>주소:</strong>
+                        <span>경기도 용인시 수지구 상현로 27</span>
+                    </div>
+                    <div class="contact-item">
+                        <strong>GitHub:</strong>
+                        <a href="https://github.com/BaeSyoon" target="_blank" style="color: #3498db;">https://github.com/BaeSyoon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline">
+        <div class="container">
+            <h2 class="section-title">이력</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>인하대학교 컴퓨터공학과</h3>
+                        <p>2021.03 입학 / 졸업 예정 2026.02</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>IGRUS WEB 특강</h3>
+                        <p>2021.09 ~ 2021.12</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Wrtn 그로스톤 프로그램</h3>
+                        <p>2023.11</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>GDSC CS 스터디</h3>
+                        <p>2024.03 ~ 2024.06</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>GDSC PS 스터디</h3>
+                        <p>2024.01 ~ 2024.06</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>CJ대한통운 미래기술 챌린지</h3>
+                        <p>2024.07 ~ 2024.08</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
     <section id="skills">
-      <h2>기술 스택</h2>
-      <p>예: Python, C++, PySide6, Qt6, pandas, FastAPI...</p>
+        <div class="container">
+            <h2 class="section-title">스킬</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Language</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Kotlin</span>
+                        <span class="skill-tag">GLSL</span>
+                        <span class="skill-tag">Linux</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Database</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Firebase</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Unity</span>
+                        <span class="skill-tag">Visual Studio</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">PyCharm</span>
+                        <span class="skill-tag">IntelliJ</span>
+                        <span class="skill-tag">Eclipse</span>
+                        <span class="skill-tag">Android Studio</span>
+                        <span class="skill-tag">Ubuntu</span>
+                        <span class="skill-tag">Gentoo</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Etc</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Notion</span>
+                        <span class="skill-tag">Gradle</span>
+                        <span class="skill-tag">Discord</span>
+                        <span class="skill-tag">Slack</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+
+    <!-- Projects Section -->
     <section id="projects">
-      <h2>프로젝트</h2>
-      <p>VR 게임, 텔레그램 봇, 자동 문서 생성기 등</p>
+        <div class="container">
+            <h2 class="section-title">프로젝트</h2>
+            <div class="projects-grid">
+                <div class="project-card" onclick="openModal('spaceVR')">
+                    <div class="project-image">VR Game</div>
+                    <div class="project-content">
+                        <h3 class="project-title">SPACE VR GAME</h3>
+                        <p class="project-description">외계인과 함께 Python 코딩으로 우주선을 운행해 탈출하는 학습형 VR 게임</p>
+                        <div class="project-keywords">
+                            <span class="keyword">Unity</span>
+                            <span class="keyword">C#</span>
+                            <span class="keyword">VR</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" onclick="openModal('heartRate')">
+                    <div class="project-image">Mobile App</div>
+                    <div class="project-content">
+                        <h3 class="project-title">심박수 어플리케이션</h3>
+                        <p class="project-description">물류 현장 근로자 건강 관리를 위한 심박수 모니터링 앱</p>
+                        <div class="project-keywords">
+                            <span class="keyword">Android</span>
+                            <span class="keyword">Kotlin</span>
+                            <span class="keyword">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" onclick="openModal('ideaRoom')">
+                    <div class="project-image">Web Project</div>
+                    <div class="project-content">
+                        <h3 class="project-title">아이더룸</h3>
+                        <p class="project-description">웹 기반 프론트엔드 팀 프로젝트</p>
+                        <div class="project-keywords">
+                            <span class="keyword">HTML</span>
+                            <span class="keyword">CSS</span>
+                            <span class="keyword">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" onclick="openModal('fpsGame')">
+                    <div class="project-image">FPS Game</div>
+                    <div class="project-content">
+                        <h3 class="project-title">FPS GAME</h3>
+                        <p class="project-description">OpenGL과 GLSL을 활용한 개인 FPS 게임 프로젝트</p>
+                        <div class="project-keywords">
+                            <span class="keyword">OpenGL</span>
+                            <span class="keyword">GLSL</span>
+                            <span class="keyword">C++</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    <section id="contact">
-      <h2>연락처</h2>
-      <p>Email: ben@example.com<br>GitHub: github.com/ben</p>
+
+    <!-- Troubleshooting Section -->
+    <section id="troubleshooting">
+        <div class="container">
+            <h2 class="section-title">트러블슈팅</h2>
+            <div class="troubleshooting-list">
+                <div class="trouble-item">
+                    <div class="trouble-header" onclick="toggleTrouble(this)">
+                        <span>Oculus Link 연결 문제</span>
+                        <span>+</span>
+                    </div>
+                    <div class="trouble-content">
+                        <div class="trouble-section">
+                            <h4>문제:</h4>
+                            <p>Oculus Quest 2와 PC 간 연결이 불안정하여 VR 개발 테스트가 어려웠음</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>원인:</h4>
+                            <p>Oculus 설정 디렉토리의 캐시 파일 충돌</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>해결:</h4>
+                            <p>설정 디렉토리 삭제 후 재설정으로 연결 안정화</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>교훈:</h4>
+                            <p>하드웨어 연결 문제는 소프트웨어 캐시 초기화로 해결될 수 있음</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trouble-item">
+                    <div class="trouble-header" onclick="toggleTrouble(this)">
+                        <span>Unity 충돌 감지 오류</span>
+                        <span>+</span>
+                    </div>
+                    <div class="trouble-content">
+                        <div class="trouble-section">
+                            <h4>문제:</h4>
+                            <p>게임 오브젝트 간 충돌 감지가 정상적으로 작동하지 않음</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>원인:</h4>
+                            <p>Rigidbody 컴포넌트의 잘못된 설정</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>해결:</h4>
+                            <p>Rigidbody의 Is Kinematic 설정 조정 및 Collider 설정 재검토</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>교훈:</h4>
+                            <p>Unity 물리 시스템의 기본 설정을 정확히 이해하는 것이 중요</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trouble-item">
+                    <div class="trouble-header" onclick="toggleTrouble(this)">
+                        <span>입력 UI 오류</span>
+                        <span>+</span>
+                    </div>
+                    <div class="trouble-content">
+                        <div class="trouble-section">
+                            <h4>문제:</h4>
+                            <p>사용자 입력 UI에서 텍스트 처리 오류 발생</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>원인:</h4>
+                            <p>TextMeshPro 컴포넌트의 비동기 처리 문제</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>해결:</h4>
+                            <p>TextMeshPro 처리 로직 변경 및 코루틴을 활용한 비동기 처리 개선</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>교훈:</h4>
+                            <p>UI 컴포넌트의 생명주기를 고려한 프로그래밍 필요</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trouble-item">
+                    <div class="trouble-header" onclick="toggleTrouble(this)">
+                        <span>Unity 버전 문제</span>
+                        <span>+</span>
+                    </div>
+                    <div class="trouble-content">
+                        <div class="trouble-section">
+                            <h4>문제:</h4>
+                            <p>프로젝트 호환성 문제로 인한 빌드 오류</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>원인:</h4>
+                            <p>Unity 버전 간 API 변경사항</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>해결:</h4>
+                            <p>Unity 2022 LTS로 업그레이드하여 안정성 확보</p>
+                        </div>
+                        <div class="trouble-section">
+                            <h4>교훈:</h4>
+                            <p>LTS 버전 사용의 중요성과 버전 관리의 필요성</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <nav>
-    <ul>
-      <li data-target="intro">소개</li>
-      <li data-target="skills">기술 스택</li>
-      <li data-target="projects">프로젝트</li>
-      <li data-target="contact">연락처</li>
-    </ul>
-  </nav>
+    <!-- Other Activities Section -->
+    <section id="activities">
+        <div class="container">
+            <h2 class="section-title">기타 활동</h2>
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <div class="activity-icon">📚</div>
+                    <h3>알고리즘 스터디 (GDSC)</h3>
+                    <p>Google Developer Student Clubs에서 진행한 알고리즘 문제 해결 스터디</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">🌐</div>
+                    <h3>아이더룸 (웹 프로젝트)</h3>
+                    <p>HTML, CSS, JavaScript를 활용한 웹 개발 팀 프로젝트</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">🎮</div>
+                    <h3>FPS GAME (OpenGL 기반 그래픽스)</h3>
+                    <p>OpenGL과 GLSL을 활용한 3D 그래픽스 프로그래밍 학습</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">🔧</div>
+                    <h3>Atmega127 프로그래밍</h3>
+                    <p>임베디드 시스템 프로그래밍 학습 및 실습</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script>
-    const navItems = document.querySelectorAll('nav li');
+    <!-- Modals -->
+    <div id="spaceVR" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Python: Space Escape</h2>
+            <p><strong>플랫폼:</strong> Meta Quest 2</p>
+            <p><strong>개발 기간:</strong> 2025.03 ~ 2025.06</p>
+            <p><strong>기술 스택:</strong> Unity 2022, XR Toolkit, C#</p>
+            <h3>소개</h3>
+            <p>외계인과 함께 Python 코딩으로 우주선을 운행해 탈출하는 학습형 VR 게임입니다. 사용자는 VR 환경에서 직접 코드를 작성하며 우주선을 조작하고, 다양한 퍼즐을 해결하여 우주에서 탈출하는 것이 목표입니다.</p>
+            <h3>주요 기능</h3>
+            <ul>
+                <li>VR 환경에서의 키보드 입력 시스템</li>
+                <li>외계인 캐릭터와의 상호작용</li>
+                <li>단계별 게임 진행 시스템</li>
+                <li>Python 코드 실행 및 검증</li>
+                <li>몰입감 있는 우주 환경 구현</li>
+            </ul>
+        </div>
+    </div>
 
-    navItems.forEach(item => {
-      item.addEventListener('click', () => {
-        const targetId = item.getAttribute('data-target');
-        const target = document.getElementById(targetId);
-        target.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
+    <div id="heartRate" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>심박수 어플리케이션</h2>
+            <p><strong>개발 기간:</strong> 2024.07 ~ 2024.08</p>
+            <p><strong>플랫폼:</strong> Android Studio + Wear OS</p>
+            <p><strong>기술 스택:</strong> Kotlin, Firebase, Android SDK</p>
+            <h3>소개</h3>
+            <p>물류 현장 근로자의 건강 관리를 위한 심박수 모니터링 애플리케이션입니다. CJ대한통운 미래기술 챌린지 참가작으로 개발되었습니다.</p>
+            <h3>주요 기능</h3>
+            <h4>일반회원 모드:</h4>
+            <ul>
+                <li>회원가입 및 로그인 시스템</li>
+                <li>실시간 심박수 그래프 확인</li>
+                <li>건강 이상 신고 이력 조회</li>
+                <li>개인 건강 데이터 관리</li>
+            </ul>
+            <h4>관리자 모드:</h4>
+            <ul>
+                <li>전체 회원 데이터 관리</li>
+                <li>시스템 설정 기능</li>
+                <li>마스킹된 개인정보 표시</li>
+                <li>통계 및 리포트 생성</li>
+            </ul>
+        </div>
+    </div>
 
-    const sections = document.querySelectorAll('section');
+    <div id="ideaRoom" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>아이더룸</h2>
+            <p><strong>기술 스택:</strong> HTML, CSS, JavaScript</p>
+            <p><strong>프로젝트 유형:</strong> 웹 프론트엔드 팀 프로젝트</p>
+            <h3>소개</h3>
+            <p>웹 기술을 활용한 프론트엔드 개발 팀 프로젝트입니다. 사용자 친화적인 인터페이스와 반응형 디자인을 구현하였습니다.</p>
+            <h3>주요 기능</h3>
+            <ul>
+                <li>반응형 웹 디자인</li>
+                <li>사용자 인터랙션 구현</li>
+                <li>모던 웹 표준 준수</li>
+                <li>크로스 브라우저 호환성</li>
+            </ul>
+        </div>
+    </div>
 
-    window.addEventListener('scroll', () => {
-      let current = "";
+    <div id="fpsGame" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>FPS GAME</h2>
+            <p><strong>기술 스택:</strong> OpenGL, GLSL, C++</p>
+            <p><strong>프로젝트 유형:</strong> 개인 프로젝트</p>
+            <h3>소개</h3>
+            <p>OpenGL과 GLSL을 활용하여 개발한 3D FPS 게임입니다. 저수준 그래픽스 프로그래밍을 통해 3D 렌더링 파이프라인을 직접 구현하였습니다.</p>
+            <h3>주요 기능</h3>
+            <ul>
+                <li>3D 모델 렌더링</li>
+                <li>실시간 조명 시스템</li>
+                <li>텍스처 매핑</li>
+                <li>충돌 감지 시스템</li>
+                <li>파티클 시스템</li>
+                <li>사운드 시스템</li>
+            </ul>
+        </div>
+    </div>
 
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 100) {
-          current = section.getAttribute("id");
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
         }
-      });
 
-      navItems.forEach(li => {
-        li.classList.remove("active");
-        if (li.getAttribute("data-target") === current) {
-          li.classList.add("active");
+        // Close modal when clicking on close button or outside modal
+        document.querySelectorAll('.close').forEach(closeBtn => {
+            closeBtn.addEventListener('click', function() {
+                this.closest('.modal').style.display = 'none';
+            });
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        });
+
+        // Troubleshooting toggle
+        function toggleTrouble(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('span:last-child');
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.textContent = '+';
+            } else {
+                // Close all other items
+                document.querySelectorAll('.trouble-content').forEach(item => {
+                    item.classList.remove('active');
+                });
+                document.querySelectorAll('.trouble-header span:last-child').forEach(icon => {
+                    icon.textContent = '+';
+                });
+                
+                // Open clicked item
+                content.classList.add('active');
+                icon.textContent = '-';
+            }
         }
-      });
-    });
-  </script>
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.backdropFilter = 'blur(10px)';
+            } else {
+                nav.style.background = '#fff';
+                nav.style.backdropFilter = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
