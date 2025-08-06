@@ -509,6 +509,60 @@
                 padding: 1.5rem;
             }
         }
+
+        /*심박수 앱 사진 추가*/
+        .feature-block2 {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .feature-text2 {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .feature-image2 {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 250px;
+        }
+
+        .feature-image2 img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+
+        .feature-title2.user {
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title2.admin {
+            color: #e74c3c;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title2.firebase {
+            color: #27ae60;
+            margin-bottom: 1rem;
+        }
+
+        .single-column {
+            flex-direction: column;
+        }
+
+        .full {
+            width: 100%;
+        }
+
     </style>
 </head>
 <body>
@@ -1004,9 +1058,11 @@
             <!-- 기능 Subsection -->
             <div class="subsection">
                 <h2 class="subsection-title">기능</h2>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                    <div>
-                        <h4 style="color: #3498db; margin-bottom: 1rem;">일반회원 모드</h4>
+
+                <!-- 일반회원 모드 -->
+                <div class="feature-block2">
+                    <div class="feature-text2">
+                        <h4 class="feature-title2 user">일반회원 모드</h4>
                         <ul class="feature-list">
                             <li>회원가입 및 로그인 시스템</li>
                             <li>실시간 심박수 그래프 확인</li>
@@ -1015,8 +1071,15 @@
                             <li>알림 및 경고 시스템</li>
                         </ul>
                     </div>
-                    <div>
-                        <h4 style="color: #e74c3c; margin-bottom: 1rem;">관리자 모드</h4>
+                    <div class="feature-image2">
+                        <img src="images/User.JPG" alt="일반회원 모드 이미지" />
+                    </div>
+                </div>
+
+                <!-- 관리자 모드 -->
+                <div class="feature-block2">
+                    <div class="feature-text2">
+                        <h4 class="feature-title2 admin">관리자 모드</h4>
                         <ul class="feature-list">
                             <li>전체 회원 데이터 관리</li>
                             <li>시스템 설정 기능</li>
@@ -1025,20 +1088,24 @@
                             <li>위험 상황 모니터링</li>
                         </ul>
                     </div>
-                </div>
-                <div style="margin-top: 2rem;">
-                    <h4 style="color: #27ae60; margin-bottom: 1rem;">Firebase 연동</h4>
-                    <ul class="feature-list">
-                        <li>실시간 데이터베이스를 통한 심박수 데이터 동기화</li>
-                        <li>사용자 인증 및 권한 관리</li>
-                        <li>클라우드 저장소를 통한 데이터 백업</li>
-                    </ul>
+                    <div class="feature-image2">
+                        <img src="images/Admin.JPG" alt="관리자 모드 이미지" />
+                    </div>
                 </div>
 
-                 
-
-
+                <!-- Firebase 연동 -->
+                <div class="feature-block2 single-column">
+                    <div class="feature-text2 full">
+                        <h4 class="feature-title2 firebase">Firebase 연동</h4>
+                        <ul class="feature-list">
+                            <li>실시간 데이터베이스를 통한 심박수 데이터 동기화</li>
+                            <li>사용자 인증 및 권한 관리</li>
+                            <li>클라우드 저장소를 통한 데이터 백업</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+
 
             <!-- 트러블슈팅 Subsection -->
             <div class="subsection">
