@@ -227,7 +227,7 @@
         /* Project Styles */
         .project-overview {
             display: grid;
-            grid-template-columns: 1fr 300px;
+            grid-template-columns: 1fr 400px;
             gap: 2rem;
             margin-bottom: 2rem;
         }
@@ -431,6 +431,12 @@
             padding: 2rem;
         }
 
+        .feature-content2 {
+            padding: 2rem;
+            flex: 1;
+            min-width: 250px;
+        }
+
         .feature-description {
             margin-bottom: 2rem;
         }
@@ -576,6 +582,38 @@
             width: 100%;
         }
 
+        /*활동 사진 추가*/
+        .feature-body {
+            /*display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            gap: 2rem; /* 콘텐츠와 이미지 사이 여백 */
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-image3 {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 280px;
+            height: 280px; /* 원하는 고정 높이 (예: 200px) */
+            overflow: hidden; /* 잘린 부분 숨김 */
+            padding-top: 3rem;
+
+        }
+
+        .feature-image3 img {
+            width: 100%;
+            height: 100%;/**/
+            object-fit: cover; /* 이미지가 박스를 꽉 채우되, 잘릴 수 있음 */
+            /*height: auto;*/
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 
@@ -766,9 +804,9 @@
                             <p><strong>프로젝트 유형 :</strong> 팀 프로젝트 (3인)</p>
                         </div>
                         <div class="project-stns">
-                        <p><strong>프로젝트 설명 :</strong></p>
-                        <p>외계인과 함께 Python 코딩으로 우주선을 운행해 탈출하는 학습형 VR 게임</p>
-                        <p>VR 환경 내에서 직접 코드를 작성하고 물체와 상호작용하며 자연스러운 학습이 가능하도록 함</p>
+                            <p><strong>프로젝트 설명 :</strong></p>
+                            <p>외계인과 함께 Python 코딩으로 우주선을 운행해 탈출하는 학습형 VR 게임</p>
+                            <p>VR 환경 내에서 직접 코드를 작성하고 물체와 상호작용하며 자연스러운 학습이 가능하도록 함</p>
                         </div>
                     </div>
                     <div class="project-screenshot">
@@ -1175,59 +1213,83 @@
         <div class="container">
             <div class="section-header">
                 <h1 class="section-title">활동</h1>
-                <p class="section-subtitle">학습 활동 및 개인 프로젝트</p>
+                <p class="section-subtitle">학습 활동 및 프로젝트</p>
             </div>
 
             <div class="subsection">
+
+
                     <div class="feature-block">
                         <h3 class="feature-title">GDSC PS 스터디</h3>
-                        <div class="feature-content">
-                            <ul class="feature-list">
-                            <li><strong>스터디 기간 :</strong> 2024.01 ~ 2024.06</li>
-                            <li><strong>스터디 유형 :</strong> 4인</li>
-                            <li>GDSC 학술 동아리에서 임원 및 PS 스터디장을 맡음</li>
-                            <li>매주 하나의 알고리즘을 선정 후 일주일간 공부 및 문제풀이 진행</li>
-                            <li>정기 모임 시간에 알고리즘 정리본 제작 및 코드 리뷰</li>
-                            <li>GDSC에서 진행된 스터디 중 압도적으로 높은 참여율로 마무리</li>
-                            </ul>
+                        <div class="feature-body">
+                            <div class="feature-content2">
+                                <ul class="feature-list">
+                                <li><strong>스터디 기간 :</strong> 2024.01 ~ 2024.06</li>
+                                <li>GDSC 학술 동아리에서 임원 및 PS 스터디장을 맡음</li>
+                                <li>매주 하나의 알고리즘을 선정 후 일주일간 공부 및 문제풀이 진행</li>
+                                <li>백트래킹, BFS/DFS, 병합/힙 정렬, 분할정복, MST, 다익스트라, 이분탐색, DP 학습</li>
+                                <li>정기 모임 시간에 알고리즘 정리본 제작 및 코드 리뷰</li>
+                                <li>스터디 기획 및 모집, 진행을 하였고 97.5%의 참석률을 보임</li>
+                                </ul>
+                            </div>
+                            <div class="feature-image3">
+                                <img src="images/act-ps.png"/>
+                            </div>
                         </div>
                     </div>
+
+
                     <div class="feature-block">
                         <h3 class="feature-title">FPS Game</h3>
-                        <div class="feature-content">
-                            <ul class="feature-list">
-                            <li><strong>개발 기간 :</strong> 2024.11 ~ 2024.11</li>
-                            <li><strong>개요 :</strong> OpenGL로 개발한 3D 총 발사 FPS 게임</li>
-                            <li><strong>주요 기능 :</strong> 3D 모델 렌더링, 총알 발사, 텍스처 매핑, 충돌 감지</li>
-                            <li><strong>기술 스택 :</strong> OpenGL, GLSL, C++</li>
-                            
-                            </ul>
+                        <div class="feature-body">
+                            <div class="feature-content2">
+                                <ul class="feature-list">
+                                <li><strong>개발 기간 :</strong> 2024.11 ~ 2024.11</li>
+                                <li><strong>개요 :</strong> OpenGL로 개발한 3D 총 발사 FPS 게임</li>
+                                <li>사용자의 자유로운 이동, 시야 회전 각 계산, 무기 구현, 총알 발사, 충돌 감지 등 구현</li>
+                                <li><strong>기술 스택 :</strong> OpenGL, GLSL, C++</li>
+                                </ul>
+                            </div>
+                            <div class="feature-image3">
+                                <img src="images/act-fps.png" />
+                            </div>
                         </div>
                     </div>
+
                     <div class="feature-block">
                         <h3 class="feature-title">ITheRoom</h3>
-                        <div class="feature-content">
-                            <ul class="feature-list">
-                            <li><strong>개발 기간 :</strong> 2023.11 ~ 2023.11</li>
-                            <li><strong>개요:</strong> AI API를 활용한 인테리어 추천 웹 개발</li>
-                            <li><strong>프로젝트 유형:</strong> 팀 프로젝트 (4인)</li>
-                            <li><strong>기술 스택:</strong> HTML, CSS, JavaScript</li>
-                            <li><strong>주요 기능:</strong> 반응형 웹 디자인, 사용자 인터랙션, 모던 웹 표준 준수</li>
-                            <li>사용자 친화적인 인터페이스와 반응형 디자인을 구현</li>
-
-                            </ul>
+                        <div class="feature-body">
+                            <div class="feature-content2">
+                                <ul class="feature-list">
+                                <li><strong>개발 기간 :</strong> 2023.11 ~ 2023.11</li>
+                                <li><strong>개요:</strong> AI API를 활용한 인테리어 추천 웹 개발</li>
+                                <li><strong>프로젝트 유형:</strong> 팀 프로젝트 (4인)</li>
+                                <li><strong>기술 스택:</strong> HTML, CSS, JavaScript</li>
+                                <li><strong>주요 기능:</strong> 반응형 웹 디자인, 사용자 인터랙션, 모던 웹 표준 준수</li>
+                                <li>사용자 친화적인 인터페이스와 반응형 디자인을 구현</li>
+                                </ul>
+                            </div>
+                            <div class="feature-image3">
+                                <img src="images/act-itheroom.png"/>
+                            </div>
                         </div>
                     </div>
+
                     <div class="feature-block">
                         <h3 class="feature-title">Atmega128 프로그래밍</h3>
-                        <div class="feature-content">
-                            <ul class="feature-list">
-                            <li><strong>학습 기간 :</strong> 2024.09 ~ 2024.12</li>
-                            <li><strong>개요 :</strong> 임베디드 시스템 프로그래밍 학습을 위한 Atmega128 마이크로컨트롤러 프로그래밍 프로젝트</li>
-                            <li>하드웨어와 소프트웨어의 상호작용을 이해하고 실습</li>
-                            <li><strong>기술 스택 :</strong> C, Atmega128, 임베디드 시스템</li>
-                            <li><strong>주요 학습 :</strong> 마이크로컨트롤러 프로그래밍, 센서 제어, 통신 프로토콜</li>
-                            </ul>
+                        <div class="feature-body">
+                            <div class="feature-content2">
+                                <ul class="feature-list">
+                                <li><strong>학습 기간 :</strong> 2024.09 ~ 2024.12</li>
+                                <li><strong>개요 :</strong> 임베디드 시스템 프로그래밍 학습을 위한 Atmega128 마이크로컨트롤러 프로그래밍 프로젝트</li>
+                                <li>하드웨어와 소프트웨어의 상호작용을 이해하고 실습</li>
+                                <li><strong>기술 스택 :</strong> C, Atmega128, 임베디드 시스템</li>
+                                <li><strong>주요 학습 :</strong> 마이크로컨트롤러 프로그래밍, 센서 제어, 통신 프로토콜</li>
+                                </ul>
+                            </div>
+                            <div class="feature-image3">
+                                    <img src="images/act-Atmega128.jpg" />
+                            </div>
                         </div>
                     </div>
                 </div>
