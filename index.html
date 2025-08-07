@@ -850,7 +850,7 @@
                     <h3 class="feature-title">게임 단계 처리</h3>
                     <div class="feature-content">
                         <ul class="feature-list">
-                          <li>Enum을 기반한 GameStageManager로 주요 스크립트들 중앙 제어</li>
+                          <li>Enum을 기반으로 둔 GameStageManager로 주요 스크립트들 중앙 제어</li>
                           <li>각 단계는 외계인의 대사 → 사용자 입력 → 정답 판별 → 이벤트 → 다음 단계 순서로 진행</li>
                           <li>게임 종료 시 문이 열리며, StartMenu로 회귀</li>
                           <li>코루틴을 통해 이벤트를 비동기적으로 제어하여 부드러운 게임 플레이를 제공</li>
@@ -888,7 +888,7 @@
                     <li><strong>오브젝트 상호작용 :</strong> 버튼 클릭 시 이벤트 발생, 큐브 잡고 던지기 등의 상호작용</li>
                     <li><strong>힌트 콘솔 :</strong> 단계 별 힌트 제공, 힌트 콘솔과 충돌 시 힌트 출력</li>
                     <li><strong>씬 전환 :</strong> StartMenu → GameMenu → StartMenu 로의 씬 전환 시의 부자연스러움 해결</li>
-                    <li><strong>사운드/진동 :</strong> 코루틴을 통해 각 사운드와 햅틱 별로 시간과 위치를 설정</li>
+                    <li><strong>사운드/햅틱 :</strong> 코루틴을 통해 각 사운드와 햅틱 별로 시간과 순서를 설정</li>
                     <li><strong>UI 시스템 :</strong> VR 환경에 최적화된 직관적인 사용자 인터페이스</li>
                 </ul>
                 <div class="feature-media">
@@ -926,24 +926,20 @@
                     </div>
                     <div class="trouble-content">
                         <div class="trouble-detail">
-                            <h5>문제:</h5>
+                            <h5>문제</h5>
                             <p>Oculus Quest 2와 PC 간 연결이 불안정하여 VR 개발 테스트가 어려웠음</p>
                         </div>
                         <div class="trouble-detail">
-                            <h5>원인:</h5>
-                            <p>Oculus 설정 디렉토리의 캐시 파일 충돌</p>
-                        </div>
-                        <div class="trouble-detail">
-                            <h5>시도한 방법:</h5>
+                            <h5>시도</h5>
                             <p>USB 케이블 교체, 드라이버 재설치, Oculus 소프트웨어 재설치</p>
                         </div>
                         <div class="trouble-detail">
-                            <h5>최종 해결:</h5>
-                            <p>설정 디렉토리 삭제 후 재설정으로 연결 안정화</p>
+                            <h5>원인</h5>
+                            <p>Oculus 설정 디렉토리의 캐시 파일 충돌</p>
                         </div>
                         <div class="trouble-detail">
-                            <h5>교훈:</h5>
-                            <p>하드웨어 연결 문제는 소프트웨어 캐시 초기화로 해결될 수 있음</p>
+                            <h5>해결</h5>
+                            <p>링크 시도마다 설정 디렉토리 삭제 후 재설정으로 연결 안정화</p>
                         </div>
                     </div>
                 </div>
@@ -955,24 +951,20 @@
                     </div>
                     <div class="trouble-content">
                         <div class="trouble-detail">
-                            <h5>문제:</h5>
-                            <p>외계인 NPC와 플레이어 간 충돌 감지가 정상적으로 작동하지 않음</p>
+                            <h5>문제</h5>
+                            <p>외계인 NPC와 Collider 간 충돌 감지가 정상적으로 작동하지 않음</p>
                         </div>
                         <div class="trouble-detail">
-                            <h5>원인:</h5>
-                            <p>Rigidbody 컴포넌트의 잘못된 설정 및 Collider 크기 문제</p>
+                            <h5>시도</h5>
+                            <p>Collider 크기 조정, Layer 설정 변경, Physics Material 적용, log 추가</p>
                         </div>
                         <div class="trouble-detail">
-                            <h5>시도한 방법:</h5>
-                            <p>Collider 크기 조정, Layer 설정 변경, Physics Material 적용</p>
+                            <h5>원인</h5>
+                            <p>Rigidbody 컴포넌트의 잘못된 설정</p>
                         </div>
                         <div class="trouble-detail">
-                            <h5>최종 해결:</h5>
-                            <p>Rigidbody의 Is Kinematic 설정 조정 및 Trigger 방식으로 변경</p>
-                        </div>
-                        <div class="trouble-detail">
-                            <h5>교훈:</h5>
-                            <p>Unity 물리 시스템의 기본 설정을 정확히 이해하는 것이 중요</p>
+                            <h5>해결</h5>
+                            <p>Rigidbody의 Is Kinematic 설정 조정</p>
                         </div>
                     </div>
                 </div>
@@ -984,85 +976,49 @@
                     </div>
                     <div class="trouble-content">
                         <div class="trouble-detail">
-                            <h5>문제:</h5>
-                            <p>VR 환경에서 가상 키보드 입력이 간헐적으로 인식되지 않음</p>
+                            <h5>문제</h5>
+                            <p>VR 환경에서 모니터 출력 시 다양한 문제 발생</p>
                         </div>
                         <div class="trouble-detail">
-                            <h5>원인:</h5>
-                            <p>TextMeshPro 컴포넌트의 비동기 처리 문제 및 입력 이벤트 충돌</p>
+                            <h5>시도</h5>
+                            <p>입력 딜레이 추가, 이벤트 리스너 재설정, UI 업데이트 순서 조정 등</p>
                         </div>
                         <div class="trouble-detail">
-                            <h5>시도한 방법:</h5>
-                            <p>입력 딜레이 추가, 이벤트 리스너 재설정, UI 업데이트 순서 조정</p>
+                            <h5>원인</h5>
+                            <p>TextMeshPro 컴포넌트의 입력 이벤트 충돌 등</p>
                         </div>
                         <div class="trouble-detail">
-                            <h5>최종 해결:</h5>
-                            <p>코루틴을 활용한 비동기 처리 개선 및 입력 버퍼 시스템 구현</p>
-                        </div>
-                        <div class="trouble-detail">
-                            <h5>교훈:</h5>
-                            <p>VR 환경에서는 일반적인 UI 처리와 다른 접근이 필요함</p>
+                            <h5>해결</h5>
+                            <p>출력용 모니터 생성, 기존 에셋 방식 조정, 입력 버퍼 시스템 구현 등</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="trouble-item">
+                     <div class="trouble-item">
                     <div class="trouble-header" onclick="toggleTrouble(this)">
-                        <span>XR 초기화 버그</span>
+                        <span>Unity 씬 내 StartMenu XR 비활성화</span>
                         <span>+</span>
                     </div>
                     <div class="trouble-content">
                         <div class="trouble-detail">
-                            <h5>문제:</h5>
-                            <p>XR 시스템 초기화 실패로 인한 앱 크래시 발생</p>
+                            <h5>문제</h5>
+                            <p>StartMenu 씬에서 XR 시스템 비활성화로 인한 화면 이상</p>
                         </div>
                         <div class="trouble-detail">
-                            <h5>원인:</h5>
-                            <p>XR Toolkit 버전 호환성 문제 및 초기화 순서 오류</p>
+                            <h5>시도</h5>
+                            <p>XR Toolkit 버전 다운그레이드, 초기화 코드 순서 변경, 코루틴으로 초기화 시간 지정</p>
                         </div>
                         <div class="trouble-detail">
-                            <h5>시도한 방법:</h5>
-                            <p>XR Toolkit 버전 다운그레이드, 초기화 코드 순서 변경</p>
+                            <h5>원인</h5>
+                            <p>알 수 없음</p>
                         </div>
                         <div class="trouble-detail">
-                            <h5>최종 해결:</h5>
-                            <p>안정적인 XR Toolkit 버전 사용 및 예외 처리 강화</p>
-                        </div>
-                        <div class="trouble-detail">
-                            <h5>교훈:</h5>
-                            <p>VR 개발 시 안정적인 버전의 라이브러리 사용이 중요</p>
+                            <h5>해결</h5>
+                            <p>XR 시스템 초기화 시간 지정 후 XR Origin 활성화</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="trouble-item">
-                    <div class="trouble-header" onclick="toggleTrouble(this)">
-                        <span>Unity 버전 호환성 문제</span>
-                        <span>+</span>
-                    </div>
-                    <div class="trouble-content">
-                        <div class="trouble-detail">
-                            <h5>문제:</h5>
-                            <p>팀원 간 Unity 버전 차이로 인한 프로젝트 호환성 문제</p>
-                        </div>
-                        <div class="trouble-detail">
-                            <h5>원인:</h5>
-                            <p>Unity 버전 간 API 변경사항 및 패키지 의존성 차이</p>
-                        </div>
-                        <div class="trouble-detail">
-                            <h5>시도한 방법:</h5>
-                            <p>버전 통일, 패키지 매니저 설정 동기화, 프로젝트 설정 공유</p>
-                        </div>
-                        <div class="trouble-detail">
-                            <h5>최종 해결:</h5>
-                            <p>Unity 2022 LTS로 통일하여 안정성 확보</p>
-                        </div>
-                        <div class="trouble-detail">
-                            <h5>교훈:</h5>
-                            <p>팀 프로젝트에서는 개발 환경 통일이 필수적</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -1072,7 +1028,7 @@
         <div class="container">
             <div class="section-header">
                 <h1 class="section-title">심박수 관리 어플리케이션</h1>
-                <p class="section-subtitle">CJ대한통운 미래기술 챌린지 공모전 참가작</p>
+                <p class="section-subtitle">HealthCare - CJ대한통운 미래기술 챌린지 공모전</p>
             </div>
 
             <!-- 개요 Subsection -->
@@ -1081,19 +1037,19 @@
                 <div class="project-overview">
                     <div>
                         <div class="project-info">
-                            <p><strong>개발 기간:</strong> 2024.07 ~ 2024.08</p>
-                            <p><strong>플랫폼:</strong> Android Studio + Wear OS</p>
-                            <p><strong>기술 스택:</strong> Kotlin, Firebase, Android SDK</p>
-                            <p><strong>프로젝트 유형:</strong> 팀 프로젝트(2인)</p>
+                            <p><strong>개발 기간 :</strong> 2024.07 ~ 2024.08</p>
+                            <p><strong>플랫폼 :</strong> Android Studio + Wear OS</p>
+                            <p><strong>기술 스택 :</strong> Kotlin, Firebase, Android SDK</p>
+                            <p><strong>프로젝트 유형 :</strong> 팀 프로젝트(2인)</p>
                         </div>
                         <div class="project-stns">
-                        <p><strong>프로젝트 설명:</strong></p>
+                        <p><strong>프로젝트 설명 :</strong></p>
                         <p>물류 현장 근로자의 건강 관리를 위한 심박수 모니터링 애플리케이션</p>
                         <p>실시간 심박수 데이터를 수집하여 근로자의 건강 상태 모니터링 및 관리자의 신고 기능</p>
                         </div>
                     </div>
                     <div class="project-screenshot">
-                        Heart Rate App Screenshot
+                        <img src="images/CJ2.png">
                     </div>
                 </div>
             </div>
@@ -1107,11 +1063,11 @@
                     <div class="feature-text2">
                         <h4 class="feature-title2 user">일반회원 모드</h4>
                         <ul class="feature-list">
-                            <li>회원가입 및 로그인 시스템</li>
-                            <li>실시간 심박수 그래프 확인</li>
+                            <li>회원가입 및 로그인, 생체 인식 로그인 시스템</li>
+                            <li>아이디/비밀번호 찾기 기능</li>
+                            <li>30일 간 최대, 평균, 최소 심박수 그래프 확인</li>
                             <li>건강 이상 신고 이력 조회</li>
                             <li>개인 건강 데이터 관리</li>
-                            <li>알림 및 경고 시스템</li>
                         </ul>
                     </div>
                     <div class="feature-image2">
@@ -1124,11 +1080,11 @@
                     <div class="feature-text2">
                         <h4 class="feature-title2 admin">관리자 모드</h4>
                         <ul class="feature-list">
-                            <li>전체 회원 데이터 관리</li>
-                            <li>시스템 설정 기능</li>
-                            <li>마스킹된 개인정보 표시</li>
-                            <li>통계 및 리포트 생성</li>
-                            <li>위험 상황 모니터링</li>
+                            <li>전체 회원 심박수 데이터 모니터링 시스템</li>
+                            <li>마스킹된 개인정보로 신고 이력 확인 시스템</li>
+                            <li>위험 상황 알림 시스템</li>
+                            <li>회원별 심박수 임계치 설정 기능</li>
+                            <li>관리자 설정/해제 기능</li>
                         </ul>
                     </div>
                     <div class="feature-image2">
@@ -1141,9 +1097,10 @@
                     <div class="feature-text2 full">
                         <h4 class="feature-title2 firebase">Firebase 연동</h4>
                         <ul class="feature-list">
-                            <li>실시간 데이터베이스를 통한 심박수 데이터 동기화</li>
+                            <li>워치 앱에서 받아온 실시간 데이터베이스 동기화</li>
+                            <li>날짜 별 최대, 평균, 최소 심박수 저장</li>
+                            <li>회원 개인정보. 관리자 개인정보 관리</li>
                             <li>사용자 인증 및 권한 관리</li>
-                            <li>클라우드 저장소를 통한 데이터 백업</li>
                         </ul>
                     </div>
                 </div>
@@ -1161,53 +1118,44 @@
                     </div>
                     <div class="trouble-content">
                         <div class="trouble-detail">
-                            <h5>문제:</h5>
-                            <p>여러 사용자의 심박수 데이터가 실시간으로 동기화되지 않는 문제 발생</p>
+                            <h5>문제</h5>
+                            <p>회원의 심박수 데이터가 실시간으로 동기화되지 않는 문제 발생</p>
                         </div>
                         <div class="trouble-detail">
-                            <h5>원인:</h5>
-                            <p>Firebase Realtime Database의 리스너 설정 오류 및 네트워크 연결 불안정</p>
-                        </div>
-                        <div class="trouble-detail">
-                            <h5>시도한 방법:</h5>
+                            <h5>시도</h5>
                             <p>리스너 재설정, 네트워크 상태 확인, 데이터베이스 규칙 검토</p>
                         </div>
                         <div class="trouble-detail">
-                            <h5>최종 해결:</h5>
-                            <p>ValueEventListener를 ChildEventListener로 변경하고 오프라인 지원 활성화</p>
+                            <h5>원인</h5>
+                            <p>Firebase Realtime Database에서 addValueEventListener() 이상 작동</p>
                         </div>
                         <div class="trouble-detail">
-                            <h5>교훈:</h5>
-                            <p>실시간 데이터베이스 사용 시 적절한 리스너 선택과 오프라인 지원의 중요성</p>
+                            <h5>해결</h5>
+                            <p>ValueEventListener를 ChildEventListener로 변경 후 정상 작동 확인</p>
                         </div>
                     </div>
                 </div>
-
                 <div class="trouble-item">
                     <div class="trouble-header" onclick="toggleTrouble(this)">
-                        <span>Wear OS 센서 데이터 수집 오류</span>
+                        <span>Firebase 구조 설계 오류</span>
                         <span>+</span>
                     </div>
                     <div class="trouble-content">
                         <div class="trouble-detail">
-                            <h5>문제:</h5>
-                            <p>Wear OS 기기에서 심박수 센서 데이터를 정확히 읽어오지 못함</p>
+                            <h5>문제</h5>
+                            <p>심박수 데이터가 다른 사용자 데이터와 혼합되어 표시됨</p>
                         </div>
                         <div class="trouble-detail">
-                            <h5>원인:</h5>
-                            <p>센서 권한 설정 누락 및 센서 샘플링 레이트 설정 문제</p>
+                            <h5>시도</h5>
+                            <p>Firebase Realtime Database 확인 및 구조화된 경로로 변경</p>
                         </div>
                         <div class="trouble-detail">
-                            <h5>시도한 방법:</h5>
-                            <p>권한 요청 코드 추가, 센서 매니저 재초기화, 다양한 샘플링 레이트 테스트</p>
+                            <h5>원인</h5>
+                            <p>Firebase Realtime Database에 사용자 구분 없이 공통 경로로 데이터를 저장함</p>
                         </div>
                         <div class="trouble-detail">
-                            <h5>최종 해결:</h5>
-                            <p>BODY_SENSORS 권한 추가 및 적절한 센서 딜레이 설정으로 안정적인 데이터 수집</p>
-                        </div>
-                        <div class="trouble-detail">
-                            <h5>교훈:</h5>
-                            <p>하드웨어 센서 사용 시 권한과 설정의 정확한 이해 필요</p>
+                            <h5>해결</h5>
+                            <p>Firebase 경로를 <strong>users/{userId}/heartRate</strong> 형태로 분리하여 사용자별로 데이터가 저장되도록 수정</p>
                         </div>
                     </div>
                 </div>
@@ -1228,44 +1176,47 @@
                         <h3 class="feature-title">GDSC PS 스터디</h3>
                         <div class="feature-content">
                             <ul class="feature-list">
-                            <li><strong>기간:</strong> 2024.01 ~ 2024.06</li>
-                            <li>Google Developer Student Clubs에서 진행한 알고리즘 문제 해결 스터디입니다.</li>
-                            <li> 매주 정기적으로 모여 다양한 알고리즘 문제를 해결하고 코드 리뷰를 통해 실력을 향상시켰습니다.</li>
+                            <li><strong>스터디 기간 :</strong> 2024.01 ~ 2024.06</li>
+                            <li>Google Developer Student Clubs에서 진행한 알고리즘 문제 해결 스터디</li>
+                            <li>매주 정기적으로 모여 다양한 알고리즘 문제를 해결하고 코드 리뷰를 통해 실력을 향상시켰습니다.</li>
                             </ul>
                         </div>
                     </div>
                     <div class="feature-block">
-                        <h3 class="feature-title">OpenGL 기반 FPS Game</h3>
+                        <h3 class="feature-title">FPS Game</h3>
                         <div class="feature-content">
                             <ul class="feature-list">
-                            <li><strong>기간:</strong> 20?</li>
-                            <li>OpenGL과 GLSL을 활용하여 개발한 3D FPS 게임</li>
-                            <li><strong>기술 스택:</strong> OpenGL, GLSL, C++</li>
-                            <li><strong>주요 기능:</strong> 3D 모델 렌더링, 실시간 조명, 텍스처 매핑, 충돌 감지</li>
+                            <li><strong>개발 기간 :</strong> 2024.11 ~ 2024.11</li>
+                            <li><strong>개요 :</strong> OpenGL로 개발한 3D 총 발사 FPS 게임</li>
+                            <li><strong>주요 기능 :</strong> 3D 모델 렌더링, 총알 발사, 텍스처 매핑, 충돌 감지</li>
+                            <li><strong>기술 스택 :</strong> OpenGL, GLSL, C++</li>
+                            
                             </ul>
                         </div>
                     </div>
                     <div class="feature-block">
-                        <h3 class="feature-title">ITheRoom (웹 프론트엔드 프로젝트)</h3>
+                        <h3 class="feature-title">ITheRoom</h3>
                         <div class="feature-content">
                             <ul class="feature-list">
-                            <li><strong>기간:</strong> 20?</li>
-                            <li>HTML, CSS, JavaScript를 활용한 웹 개발 팀 프로젝트</li>
-                            <li>사용자 친화적인 인터페이스와 반응형 디자인을 구현</li>
+                            <li><strong>개발 기간 :</strong> 2023.11 ~ 2023.11</li>
+                            <li><strong>개요:</strong> AI API를 활용한 인테리어 추천 웹 개발</li>
+                            <li><strong>프로젝트 유형:</strong> 팀 프로젝트 (4인)</li>
                             <li><strong>기술 스택:</strong> HTML, CSS, JavaScript</li>
                             <li><strong>주요 기능:</strong> 반응형 웹 디자인, 사용자 인터랙션, 모던 웹 표준 준수</li>
+                            <li>사용자 친화적인 인터페이스와 반응형 디자인을 구현</li>
+
                             </ul>
                         </div>
                     </div>
                     <div class="feature-block">
-                        <h3 class="feature-title">Atmega127 프로그래밍</h3>
+                        <h3 class="feature-title">Atmega128 프로그래밍</h3>
                         <div class="feature-content">
                             <ul class="feature-list">
-                            <li><strong>기간:</strong> 20?</li>
-                            <li>임베디드 시스템 프로그래밍 학습을 위한 Atmega127 마이크로컨트롤러 프로그래밍 프로젝트</li>
+                            <li><strong>학습 기간 :</strong> 2024.09 ~ 2024.12</li>
+                            <li><strong>개요 :</strong> 임베디드 시스템 프로그래밍 학습을 위한 Atmega128 마이크로컨트롤러 프로그래밍 프로젝트</li>
                             <li>하드웨어와 소프트웨어의 상호작용을 이해하고 실습</li>
-                            <li><strong>기술 스택:</strong> C, Atmega127, 임베디드 시스템</li>
-                            <li><strong>주요 학습:</strong> 마이크로컨트롤러 프로그래밍, 센서 제어, 통신 프로토콜</li>
+                            <li><strong>기술 스택 :</strong> C, Atmega128, 임베디드 시스템</li>
+                            <li><strong>주요 학습 :</strong> 마이크로컨트롤러 프로그래밍, 센서 제어, 통신 프로토콜</li>
                             </ul>
                         </div>
                     </div>
